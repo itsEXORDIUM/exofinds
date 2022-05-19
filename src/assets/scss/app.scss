@@ -1,0 +1,143 @@
+@charset 'utf-8';
+@import 'global/settings';
+
+// UTILS
+@import 'components/utils.scss';
+@import 'components/header.scss';
+
+// TUMBLR BASICS
+@import 'components/tumblr_iframe.scss';
+
+// CONTAINERS
+@import 'components/sidebar.scss';
+
+// POSTS
+@import 'components/posts.scss';
+
+// BLOCS
+@import 'components/nav.scss';
+@import 'components/pagination.scss';
+@import 'components/credit.scss';
+@import 'components/directory.scss';
+@import 'components/fc_panel.scss';
+
+// RESPONSIVE
+@import 'components/responsive/tablette.scss';
+@import 'components/responsive/phone.scss';
+
+/*----- BASIC STYLING -----*/
+
+:root {
+    font-size:10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $body-font-family;
+    font-size: $global-font-size;
+    color: $body-font-color;
+    background-color: $body-background;
+    line-height: $global-lineheight;
+    word-wrap: break-word;
+    margin: 0;
+    padding: $body_padding;
+    background-image:url('https://images2.imgbox.com/3d/47/rBboRVxl_o.jpg');
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+    transition: all $global_transition;
+    font-size:1em;
+
+    &:hover {
+        color: $primary_color;
+    }
+}
+
+h1, h2, h3, h4, h5, .title {
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    font-style: $header-font-style;
+    color: $header-color;
+    line-height: $header-lineheight;
+    margin-bottom: $header-margin-bottom;
+}
+
+h1 {font-size: map-deep-get($header-styles, large, h1, font-size);}
+h2 {font-size: map-deep-get($header-styles, large, h2, font-size);}
+h3 {font-size: map-deep-get($header-styles, large, h3, font-size);}
+h4 {font-size: map-deep-get($header-styles, large, h4, font-size);}
+h5 {font-size: map-deep-get($header-styles, large, h5, font-size);}
+
+small {font-size: $small-font-size;}
+big {font-size: 1.1em;}
+
+ol, ul {
+    margin-bottom:$list-margin-bottom;
+    list-style-type:$list-style-type;
+    list-style-position: $list-style-position;
+
+    li {
+        line-height:$list-lineheight;
+    }
+}
+
+hr {
+    height: 0;
+    border: $hr-border;
+    box-shadow: none;
+    background-color: $medium_gray;
+    width: $global-width;
+    margin: $hr-margin;
+}
+
+pre {
+    line-height: inherit;
+    font-size: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+main {
+    position: relative;
+    width: $main_width;
+    margin: auto;
+    padding-top:$header_height;
+}
+
+section {
+    position: relative;
+    width: $post_size;
+    margin-left: 40rem;
+}
+
+img {
+    margin: 0;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+figure {
+    margin-left:0;
+    margin-right:0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @include gradient(180deg);
+}

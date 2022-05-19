@@ -1,0 +1,46 @@
+<!-- DETAIL PAGE -->
+
+{{#posts}}
+    {{#each posts.items}}
+        {{#ifequal type "text"}}
+            <article class="post" id="{PostID}">
+
+                
+                {{> text_post}}
+                
+
+                <div class="body">
+                    {{#unless noReblog}}
+                        {{> reblogged}}
+                    {{/unless}}
+
+                    {{{body}}}
+                </div>
+
+                <!----- INFO ----->
+                <div class="info">
+                {{> pinnedPost}}
+                {{> date}}
+                {{> noteCount}}
+                        
+                <!-- reblog info and content source on permalink pages -->
+                {{> rebloggedFrom}}
+                {{> contentSource}}
+                    
+                <!-- like and reblog buttons -->
+                {{> reblog_btn}}
+                {{> like_btn}}
+                    
+                </div>
+
+                <!----- TAGS ----->
+                {{#if tags}}
+                    {{> tags}}
+                {{/if}}
+
+                <!----- POST NOTES ----->
+                {{> postNotes}}
+            </article>
+        {{/ifequal}}
+    {{/each}}
+{{/posts}}

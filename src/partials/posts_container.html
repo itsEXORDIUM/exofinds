@@ -1,0 +1,91 @@
+{{#posts}}
+    {{#each posts.items}}
+        <article class="post" id="{PostID}">
+
+            {{#ifequal type "text"}}
+                {{> text_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "link"}}
+                {{> link_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "photo"}}
+                {{> photo_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "photoset"}}
+                {{> photoset_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "video"}}
+                {{> video_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "quote"}}
+                {{> quote_post}}
+            {{/ifequal}}
+
+            {{#ifequal type "chat"}}
+                {{> chat_post}}
+            {{/ifequal}}
+
+            {{#ifequal type "answer"}}
+                {{> answer_post reblogged="true"}}
+            {{/ifequal}}
+
+            {{#ifequal type "audio"}}
+                {{> audio_post reblogged="true"}}
+            {{/ifequal}}
+
+            <div class="body">
+                {{#unless noReblog}}
+                    {{> reblogged}}
+                {{/unless}}
+
+                {{#ifequal type "text"}}
+                {{else}}
+                    {{#if body}}
+                        {{{body}}}
+                    {{/if}}
+
+                    {{#if caption}}
+                        {{{caption}}}
+                    {{/if}}
+
+                    {{#if description}}
+                        {{{description}}}
+                    {{/if}}
+                {{/ifequal}}
+            </div>
+
+            <!----- INFO ----->
+            <div class="infos">
+            {{#if PinnedPostLabel}}
+                {{> pinnedPost}}
+            {{/if}}
+            {{> date}}
+            {{> noteCount}}
+                    
+            <!-- reblog info and content source on permalink pages -->
+            {{> rebloggedFrom}}
+            {{> contentSource}}
+                
+            <!-- like and reblog buttons -->
+            {{> reblog_btn}}
+            {{> like_btn}}
+                
+            </div>
+
+            <!----- TAGS ----->
+            {{#if tags}}
+                {{> tags}}
+            {{/if}}
+
+            {{#if postNotes}}
+                <!----- POST NOTES ----->
+                {{> postNotes}}
+            {{/if}}
+        </article>
+    {{/each}}
+{{/posts}}

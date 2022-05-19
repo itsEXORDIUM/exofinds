@@ -1,0 +1,40 @@
+<nav>
+    <ul>
+      {{#if base.home_link}}
+        <li class="home"><a href="/">Home</a></li>
+      {{/if}}
+      {{#if base.ask_link}}
+        <li class="ask"><a href="/ask">Ask</a></li>
+      {{/if}}
+      {{#if base.archive_link}}
+        <li class="archive"><a href="/archive">Archive</a></li>
+      {{/if}}
+      {{#if base.submit_link}}
+        <li class="submit"><a href="/submit">Submit</a></li>
+      {{/if}}
+
+      {{#base.link1}}
+        {{#if visible}}
+          <li class="link1"><a href="{{URL}}">{{name}}</a></li>
+        {{/if}}
+      {{/base.link1}}
+
+      {{#base.link2}}
+        {{#if visible}}
+          <li class="link2"><a href="{{URL}}">{{name}}</a></li>
+        {{/if}}
+      {{/base.link2}}
+
+      {{#base.link3}}
+        {{#if visible}}
+          <li class="link3"><a href="{{URL}}">{{name}}</a></li>
+        {{/if}}
+      {{/base.link3}}
+
+      {{#base.link4}}
+        {{#if visible}}
+          <li class="link4"><a href="{{URL}}">{{name}}</a></li>
+        {{/if}}
+      {{/base.link4}}
+    </ul>
+</nav>

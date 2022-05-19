@@ -1,0 +1,12 @@
+nav {
+    margin-top: 1.25em;
+
+    ul, li {
+        padding:0; margin:0;
+        list-style-type:none;
+    }
+
+    a {
+        color:$primary_color;
+    }
+}

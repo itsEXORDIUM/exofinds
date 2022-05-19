@@ -1,0 +1,18 @@
+posts:
+  items:
+    - type: "photoset"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      photosetiframe:
+        url: https://testexordium.tumblr.com/post/672827722766172160/photoset_iframe/testexordium/tumblr_r5eftiyKDv1ymx6e1/700/false
+        width: 700
+        height: 497
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"

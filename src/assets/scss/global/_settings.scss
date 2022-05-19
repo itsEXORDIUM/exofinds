@@ -1,0 +1,103 @@
+@import 'util/util';
+@import 'variables';
+@import 'typography';
+
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+/************************************************************************ FROM CSS TO SASS ********************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+
+        $regular: var(--regular);
+        $title: var(--title);
+        $subtitle: var(--subtitle);
+
+        // colors
+        $primary_color: var(--primary-color);
+        $secondary_color: var(--secondary-color);
+
+        $light_gray: var(--light-gray);
+        $medium_gray: var(--medium-gray);
+        $dark_gray: var(--dark-gray);
+        $black: var(--black);
+        $white: var(--white);
+
+        // others
+        $post_size: var(--post-size);
+        $sidebar_img: var(--sidebar-img);
+
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+/******************************************************************************** INIT ************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+        // GLOBAL
+        $global-width: rem-calc(1200);
+
+        // FONTS
+        $body-font-family:$regular;
+        $body-font-color:$white;
+        $body-background:$black;
+        $global-lineheight:1.4;
+
+        $header-font-family:$title;
+        $header-font-weight:bold;
+        $header-font-style:initial;
+        $header-color:$primary_color;
+        $header-lineheight:1.6;
+        $header-margin-bottom:1.5rem;
+        $header-styles: (
+          small: (
+            'h1': ('font-size': 2.5rem),
+            'h2': ('font-size': 2rem),
+            'h3': ('font-size': 1.8rem),
+            'h4': ('font-size': 1.7rem),
+            'h5': ('font-size': 1.6rem),
+            'h6': ('font-size': 1.4rem),
+            'p': ('font-size': 1.4rem)
+          ),
+          medium: (
+            'h1': ('font-size': 2.8rem),
+            'h2': ('font-size': 2.5rem),
+            'h3': ('font-size': 2rem),
+            'h4': ('font-size': 1.8rem),
+            'h5': ('font-size': 1.6rem),
+            'h6': ('font-size': 1.4rem),
+            'p': ('font-size': 1.4rem)
+          ),
+          large: (
+            'h1': ('font-size': 3rem),
+            'h2': ('font-size': 2.8rem),
+            'h3': ('font-size': 2.5rem),
+            'h4': ('font-size': 2rem),
+            'h5': ('font-size': 1.8rem),
+            'h6': ('font-size': 1.6rem),
+            'p': ('font-size': 1.4rem)
+          ),
+        );
+        $small-font-size: 80%;
+
+        // PARAGRAPHS
+        $paragraph-margin-bottom: 1rem;
+        $paragraph-lineheight: 1.6;
+
+        // LIST
+        $list-margin-bottom: $paragraph-margin-bottom;
+        $list-style-type:none;
+        $list-style-position: outside;
+        $list-lineheight: $paragraph-lineheight;
+
+        // HR
+        $hr-width: $global-width;
+        $hr-border: 1px solid $medium_gray;
+        $hr-margin: rem-calc(20) auto;
+
+        // RESPONSIVE
+        $breakpoints: (
+          small: 0,
+          medium: 640px,
+          large: 1024px,
+          xlarge: 1200px,
+          xxlarge: 1440px,
+        );
+        $breakpoint-classes: (small medium large);

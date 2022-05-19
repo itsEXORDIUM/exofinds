@@ -1,0 +1,23 @@
+// fonts
+:root {
+    --regular: 'Roboto', Arial, Helvetica, sans-serif;
+    --title: 'OTF', cursive;
+    --subtitle: 'SGK', Times, serif;
+    --primary-color: #655066;
+    --secondary-color: #652F21;
+    --light-gray: #e6e6e6;
+    --medium-gray: #cacaca;
+    --dark-gray: #8a8a8a;
+    --black: #171717;
+    --white: #F6F6F6;
+
+    // others
+    --post-size: 50rem;
+    --sidebar-img: true;
+}
+
+$global_transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+$header_height:3.5rem;
+$main_width: 100%;
+$body_padding:0;
+$global_radius:0.4rem;
