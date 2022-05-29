@@ -1,0 +1,14 @@
+<!-- TAGGED PAGE -->
+
+<div class="head_page">
+    {{#if base.tagPage.visible}}
+        <p>Viewing posts filed under #{{base.tagPage.tag}}</p>
+    {{/if}}
+    {{#if base.dayPage.visible}}
+       <p>Viewing posts made on {{base.dayPage.month}} {{base.dayPage.dayofmonth}}, {{base.dayPage.year}}</p>
+    {{/if}}
+</div>
+
+<div class="character_panel"></div>
+
+{{> posts_container}}

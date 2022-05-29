@@ -1,9 +1,14 @@
 header {
-    @include gradient(90deg); padding:0.5rem 5rem; position:fixed; top:0; left:0; width:100%; height:$header_height; display:flex; z-index:90;
+    height:$header_height; display:flex; justify-content:center; align-items:center; margin:0 5rem 3rem 5rem; position:relative;
 
-    .left_side {
-        display:flex; align-items:center;
-        > img {width:2.5rem; height:2.5rem; border-radius:$global-radius;}
-        h1 {color:$white; font-size:1.2em; margin:0 0 0 1.5rem;}
+    $h1_width:12rem;
+    $line_margin:8.8rem;
+    &::before, &::after {content:''; display:block; position:absolute; width:calc(50% - ( #{$h1_width} / 2 ) - #{$line_margin}); height:0.1rem; top:50%; background-color:$medium_gray;}
+    &::before {left:0;}
+    &::after {right:0;}
+
+    h1 {
+        font-size:2.5em; line-height:0.8;  letter-spacing:0.1em; display:inline-block; width:$h1_width; text-align:center; font-weight:normal; margin:0;
+        a {color:$white;}
     }
 }

@@ -1,28 +1,41 @@
 #directory {
-    width:100%; display:flex; justify-content:space-between; flex-direction:row-reverse; padding:0 5rem;
-    height:100vh;
-    background-image:url('https://images2.imgbox.com/3d/47/rBboRVxl_o.jpg');
+    width:100%; display:flex; justify-content:space-between;
+    height:100%; @include bg_diff();
+    &::before {width:32rem;}
 
     #filters {
-        width:44.5rem; position:fixed; top:0; right:5rem; height:100%; overflow:auto;
+        width:32rem; overflow:auto; position:relative; padding:5rem 3.5rem;
 
-        .resume {@include gradient(90deg); padding:1rem 1.5rem; color:$white; text-transform:uppercase; font-size:1em; font-weight:bold; margin:5rem 0 0 0; border-radius:$global-radius;}
+        .resume {padding:1rem 1.5rem; color:$white; text-transform:uppercase; font-size:0.9em; font-weight:bold; @include bg_diff(); letter-spacing:0.15em;}
 
-        .search_fc {z-index:0; position:relative; margin-top:2rem;}
-        .search_fc::after {content:''; display:block; position:absolute; width:1.5rem; height:1.5rem; top:calc(50% - (1.5rem / 2)); left:1.5rem; background-image:url('https://images2.imgbox.com/f2/3e/aKC3KWP7_o.png'); background-repeat:no-repeat; background-position:center center; background-size:contain; z-index:2;
+        .search_fc_container {@include bg_diff();margin-top:2rem;}
+        .search_fc_container::after {content:''; display:block; position:absolute; width:1.5rem; height:1.5rem; top:calc(50% - (1.5rem / 2)); left:1.5rem; background-image:url('https://images2.imgbox.com/f2/3e/aKC3KWP7_o.png'); background-repeat:no-repeat; background-position:center center; background-size:contain; z-index:2;}
+
+        .searchfc {border:0; outline:none !important; text-transform:uppercase; font-size:0.9em; color:$white; font-weight:bold; padding:1rem 1.5rem 1rem calc(1.5rem * 3); width:100%; letter-spacing:0.15em; background-color:transparent;
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $white;
+                opacity: 1; /* Firefox */
+              }
+
+              &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $white;
+              }
+
+              &::-ms-input-placeholder { /* Microsoft Edge */
+                color: $white;
+              }
         }
-        .searchfc {@include gradient(90deg); border:0; outline:none !important; color:$white; text-transform:uppercase; font-size:1em; font-weight:bold; padding:1rem 1.5rem 1rem calc(1.5rem * 3); z-index:-1; width:100%; border-radius:$global-radius;}
 
         .select {margin-top:2rem;
             > div {margin-bottom:2rem;}
-            > div > button {font-size:1em; text-transform:uppercase; color:$white; @include gradient(90deg); padding:0.5rem; box-shadow:none; border:0; font-weight:bold; letter-spacing:0.1em; font-family:$regular; position:relative; display:inline-block; vertical-align:middle; border-radius:$global-radius; transition:$global-transition;}
+            > div > button {font-size:0.9em; text-transform:uppercase; color:$white; @include bg_diff(); padding:0.5rem; box-shadow:none; border:0; font-weight:bold; letter-spacing:0.15em; font-family:$regular; position:relative; display:inline-block; vertical-align:middle; border-radius:$global-radius; transition:$global-transition;}
             > div > button.opened {border-radius:$global-radius $global-radius 0 0;}
-            > div > button::after {content:''; display:inline-block; width:1.2rem; height:0.8rem; vertical-align:middle; background-image:url('https://images2.imgbox.com/3e/2d/6YgkXqEo_o.png'); margin-left:0.5rem; background-position:center center; background-size:contain; transition:$global-transition;}
+            > div > button::after {content:'+'; display:inline-block; margin-left:0.5rem; transition:$global-transition;}
             > div > button:is(:hover, :focus)::after {transform:scale(1.1);}
-            > div > button.opened::after {transform:rotate(180deg);}
+            > div > button.opened::after {transform:rotate(180deg); content:'-'}
             > div > button.opened:is(:hover, :focus)::after {transform:rotate(180deg) scale(1.1);}
 
-            .button-group {margin:0; padding:0;border:0.1rem solid rgba(255,255,255, 0.2); border-radius:0 $global-radius $global-radius $global-radius; flex-wrap:wrap; padding:1rem 1.5rem; display:none;}
+            .button-group {margin:0; padding:0;flex-wrap:wrap; padding:1rem 0; display:none;}
             .button-group li {margin-right:1.5rem;}
             .button-group button {padding:0; text-transform:uppercase; font-weight:bold; font-size:1em; letter-spacing:0.1em; transition:$global-transition; position:relative; display:inline-block;}
             .button-group button::before {content:''; display:block; position:absolute; width:0; height:0.1rem; bottom:0; left:50%; transform:translateX(-50%); background-color:$white; transition:$global-transition;}
@@ -33,31 +46,54 @@
         }
     }
 
-    .fc_liste {display:flex; justify-content:space-between; flex-wrap:wrap; padding-right:5rem; margin-right:50rem; padding-bottom:5rem; height:100%; width:100%; overflow:auto;}
+    .fc_liste {display:flex; justify-content:space-between; flex-wrap:wrap; width:calc(100% - 32rem); height:100%; overflow:auto; padding:2.5rem 4rem 5rem 4rem;}
 
     .list_item {
-        position:relative; width:22rem; height:35rem; z-index:0; border-radius:$global_radius; overflow:hidden; margin-top:5rem;
+        position:relative; width:25rem; height:40rem; z-index:0; margin-top:2.5rem; margin-right:1.5rem;
+        > div {height:100%; overflow:hidden; position:relative;}
         .img {position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;}
-        .img img {width:100%; height:calc(100% + 1rem); object-fit:cover; transition:$global-transition;}
+        .img img {width:100%; height:calc(100% + 1rem); object-fit:cover; transition:$global-transition; filter:grayscale(100%);}
 
         .txt {
-            height:100%; padding:1.5rem 1rem;
+            height:100%; padding:1.5rem 1rem; display:flex; flex-direction:column-reverse; justify-content:space-between;
             &::before {content:''; display:block; position:absolute; width:100%; height:50%; bottom:0; left:0; background:linear-gradient(180deg, transparent, $black); z-index:-1; transition:$global-transition;}
-            > div {display:flex; flex-direction:column-reverse; transition:$global-transition; position:absolute; left:1.5rem; bottom:1rem; max-width:calc(100% - 3rem);}
-            h2 {font-size:2em; color:$white; line-height:1.2; margin:0;}
-            .subtitle {font-family:$subtitle; font-size:1.2em; text-transform:uppercase; letter-spacing:0.1em; line-height:1; margin:0 0 0.5rem 0; color:$white;}
-            ul.infos {margin:0; padding:0; max-width:50%; position:absolute; left:1.5rem; bottom:0; transform:translateY(100%); transition:$global-transition;}
-            ul li {color:$white; text-transform:uppercase; font-size:1em; line-height:1.2; font-weight:bold; letter-spacing:0.1em;}
-            ul li.eth {margin-top:1.5rem;}
-            .btn_all {margin:0 auto; position:absolute; left:50%; bottom:0; transform:translate(-50%, 100%);}
+            &::after {content:''; display:block; position:absolute; width:100%; height:100%; top:0; left:0; background-color:$black; z-index:-1; mix-blend-mode:multiply; opacity:0.9;}
+            .infos {
+                margin:0; padding:0; display:flex;
+                li {text-transform:uppercase; letter-spacing:0.15em; margin-right:1rem; display:inline-block; font-size:0.9em; line-height:1.4;}
+            }
+
+            > div {
+                display:flex; flex-direction:column; padding-top:1.5rem; position:relative; z-index:0;
+                &::before {content:''; display:block; position:absolute; width:calc(100% + 2rem); height:calc(100% + 1.5rem); top:0; left:-1rem; background-color:$black; opacity:0; z-index:-1;}
+
+                .infos {margin-top:1rem;}
+                .infos li {background-color:$primary_color; padding:0 0.5rem;}
+            }
+            h2 {font-size:3.5em; color:$white; line-height:1; margin:0; font-weight:normal;}
+            .subtitle {font-family:$subtitle; font-size:0.8em; text-transform:uppercase; letter-spacing:0.15em; line-height:1; margin:0 0 0.5rem 0; color:$white; order:-1;}
+
+            > .infos {
+                display:block; text-align:justify; padding:2rem; justify-content:flex-end; align-items:flex-end;
+                li {margin-top:0.5rem; display:inline;}
+                li span {background-color:$primary_color; padding:0 0.3rem; font-weight:bold; font-size:0.8rem; display:inline;}
+            }
         }
 
-        &:is(:hover, :focus) {
-            img {transform:translateY(-1rem);}
-            .txt > div {bottom:100%; transform:translateY(calc(100% + 1rem));}
-            .txt::before {height:150%;}
-            ul.infos {bottom:50%; transform:translateY(50%);}
-            .btn_all {bottom:4rem; transform:translate(-50%, 0);}
+        // future hover
+        .txt {
+            > div {border-top:0.1rem solid $white; height:35%;}
+            > div::before {opacity:1;}
+
+            > .infos {height:65%;}
+        }
+
+        > div:is(:hover, :focus-within) {
+            img {transform:translateY(-1rem); filter:grayscale(0%);}
+
+            .txt {
+                &::after {}
+            }
         }
     }
 

@@ -1,0 +1,58 @@
+<p class="resume">
+    You are searching for
+
+    <!-- gender  -->
+    <span v-if="GENDER == '' || GENDER == 'All'"><u>someone</u>.</span>
+    <span v-else>a <u>[[GENDER.replace('_', ' ')]]</u>
+        <span v-if="GENDER == 'non_binary'"> person.</span>
+        <span v-else>.</span>
+    </span>
+
+    <!-- birth -->
+    <span v-if="BORN != '' && BORN != 'All'">They are born in the
+        <u><span v-if="BORN == '00'">20</span>[[BORN]]s</u><span v-if="NATIONALITY == '' || NATIONALITY == 'All'">.</span>
+    </span>
+
+    <!-- nationality  -->
+    <span v-if="NATIONALITY != '' && NATIONALITY !== 'All'">
+        <span v-if="BORN == '' || BORN == 'All'">They are born </span>
+        in <u>[[NATIONALITY]]</u>.
+    </span>
+
+    <!-- Ethnicity -->
+    <span v-if="ETHNICITY != '' && ETHNICITY !== 'All'">
+        They are of <u>[[ETHNICITY]]</u> decent
+        <span v-if="JOB == '' || JOB == 'All'">.
+        </span>
+    </span>
+
+    <!-- job  -->
+    <span v-if="JOB != '' && JOB !== 'All'">
+        <span v-if="ETHNICITY != '' && ETHNICITY !== 'All'">and
+        </span>
+        <span v-else>They </span>
+        work as a(n) <u>[[JOB]]</u>.
+    </span>
+
+    <!-- hair  -->
+    <span v-if="HAIR != '' && HAIR !== 'All'">
+        They have <u>[[HAIR.slice(0, -1)]]</u> hair
+        <span v-if="EYE == '' && EYE == 'All'">
+            .
+        </span>
+    </span>
+
+    <!-- eyes  -->
+    <span v-if="EYE != '' && EYE !== 'All'">
+        <span v-if="HAIR != '' && HAIR !== 'All'">
+            and
+        </span>
+        <span v-else>They have </span>
+        <u>[[EYE.slice(0, -1)]]</u> eyes.
+    </span>
+
+    <!-- tattoos -->
+    <span v-if="OTHER != '' && OTHER !== 'All'">
+        They also have <u>[[OTHER]]</u>.
+    </span>
+</p>

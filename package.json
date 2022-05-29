@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "foundation-sites": "latest",
+    "huntjs": "^5.0.0",
     "jquery": "^3.6.0",
     "motion-ui": "latest",
     "what-input": "^5.2.10"

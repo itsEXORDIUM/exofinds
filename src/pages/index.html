@@ -1,14 +1,31 @@
 <!-- INDEX PAGE -->
+<div id="index">
+    <nav id="big_nav">
+        <ul>
+            {{#base}}
+                {{#each big_nav}}
+                    <li>
+                        <a href="{{item.url}}">
+                            {{item.title}}
+                        </a>
+                    </li>
+                {{/each}}
+            {{/base}}
+        </ul>
+    </nav>
 
-<div class="head_page">
-    {{#if base.tagPage.visible}}
-        <p>Viewing posts filed under #{{base.tagPage.tag}}</p>
-    {{/if}}
-    {{#if base.dayPage.visible}}
-       <p>Viewing posts made on {{base.dayPage.month}} {{base.dayPage.dayofmonth}}, {{base.dayPage.year}}</p>
-    {{/if}}
+    <div id="center_piece">
+        <img src="{{base.center_img}}" alt=""/>
+        <img src="{{base.center_img}}" alt=""/>
+    </div>
+
+    <nav id="small_nav">
+        <ul>
+            {{#base}}
+                {{#each small_nav}}
+                    <li><a href="{{item.url}}">{{item.title}}</a></li>
+                {{/each}}
+            {{/base}}
+        </ul>
+    </nav>
 </div>
-
-<div class="character_panel"></div>
-
-{{> posts_container}}

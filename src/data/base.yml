@@ -1,4 +1,4 @@
-sidebar_img: true
+sidebar_img: false
 home_link: true
 ask_link: true
 archive_link: true
@@ -25,13 +25,54 @@ title: 'Tumblr Title'
 favicon: 'https://images2.imgbox.com/a5/79/7V5cTaNn_o.png'
 sidebar_img_URL: "../assets/img/avatar.png"
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum rhoncus ultrices. Donec egestas lectus in tincidunt eleifend. In maximus, ex vel tristique eleifend, odio nisi dictum magna, pellentesque porttitor erat ante quis dui. Ut ante sem, lacinia quis massa et, pretium volutpat tellus. Suspendisse condimentum imperdiet neque, eu volutpat odio varius facilisis. Morbi nec massa vehicula, vestibulum nulla in, sagittis velit. Ut ultricies gravida orci malesuada tincidunt.'
+bg_img: "../assets/img/background.jpg"
+
+# INDEX
+center_img: "../assets/img/skeletton.jpg"
+big_nav:
+    - item:
+        title: fc directory
+        url: /fc_directory
+    - item:
+        title: ask me things
+        url: /ask
+    - item:
+        title: misc resources
+        url: /tagged/misc
+small_nav:
+    - item:
+        title: avatars
+        url: /tagged/avatars
+    - item:
+        title: icons
+        url: /tagged/icons
+    - item:
+        title: crackships
+        url: /tagged/crackships
+    - item:
+        title: gifs
+        url: /tagged/gifs
+    - item:
+        title: gif icons
+        url: /tagged/gificons
+    - item:
+        title: rp resources
+        url: /tagged/resources
 
 # VIEWS
 tagPage:
-    visible: false
+    visible: true
     tag: "exempleTag"
 dayPage:
     visible: false
     month: "january"
     dayofmonth: "13"
     year: "2022"
+
+# SVGS
+svg_avatars : ../img/SVG/avatars.svg
+svg_crackships : ../img/SVG/crackships.svg
+svg_gificons : ../img/SVG/gificons.svg
+svg_gifs : ../img/SVG/gifs.svg
+svg_icons : ../img/SVG/icons.svg
+svg_others : ../img/SVG/others.svg

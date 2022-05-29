@@ -1,0 +1,203 @@
+<div id="directory">
+    <!-- partial filtres -->
+    <div id="filters">
+        {{!> resume}}
+
+        {{> directory_filters}}
+    </div>
+
+    <div class="fc_liste">
+        <!-- fc -->
+        {{> fc_call}}
+
+    </div>
+</div>
+
+<script>
+    Vue.use(VueLazyload);
+    new Vue({
+        delimiters : ['[[',']]'],
+        el: '#directory',
+        data: {
+        searchQuery: null,
+        fcs: [],
+        genders: [],
+        birth: [],
+        eths: [],
+        nationality: [],
+        dhair: [],
+        deyes: [],
+        other: [],
+        occupation: [],
+        GENDER: 'All',
+        BORN: 'All',
+        JOB: 'All',
+        NATIONALITY: 'All',
+        ETHNICITY: 'All',
+        HAIR: 'All',
+        EYE: 'All',
+        OTHER: 'All',
+        responseData: [],
+        page: []
+    },
+    mounted() {
+        axios.get('https://raw.githubusercontent.com/itsEXORDIUM/my-assets/main/jsons/exofinds_fcs_new.json')
+        .then(response => {
+            this.fcs = response.data.fcs;
+            $this = this;
+            this.fcs.forEach(function(fc) {
+                // genders
+                $this.genders.push(fc.gender);
+
+                // birth
+                fc.birth.forEach(function(birthdate) {
+                    if(birthdate.class !== '') {
+                        $this.birth.push(birthdate.class);
+                    }
+                })
+
+                // ethnicities
+                fc.ethnicity.forEach(function(ethnicity) {
+                    if(ethnicity.class !== '') {
+                        let eths = ethnicity.class.replace('-', ' ');
+                        eths = ethnicity.class.split(' ');
+                        eths.forEach(function(eth) {
+                            $this.eths.push(eth);
+                        })
+                    }
+                })
+
+                // nationality
+                if(fc.nationality != '') {
+                    let lowercase = fc.nationality.toLowerCase();
+                    lowercase = lowercase.replace('/', ' ');
+                    let nationalities = lowercase.split(' ');
+                    nationalities.forEach(function(nation) {
+                        $this.nationality.push(nation);
+                    })
+                }
+
+                // hair
+                let hairs = fc.dhair.split(' ');
+                hairs.forEach(function(hair) {
+                    $this.dhair.push(hair);
+                })
+
+                // eyes
+                let eyes = fc.deyes.split(' ');
+                eyes.forEach(function(eye) {
+                    $this.deyes.push(eye);
+                })
+
+                // other
+                if(fc.particularities !== '') {
+                    let others = fc.particularities.split(' ');
+                    others.forEach(function(other) {
+                        $this.other.push(other);
+                    })
+                }
+
+                // job
+                fc.occupation.forEach(function(job) {
+                    let jobs = job.class.split(' ');
+                    jobs.forEach(function(occupation) {
+                        $this.occupation.push(occupation);
+                    })
+                })
+            })
+
+            this.genders = [...new Set(this.genders)];
+            this.birth = [...new Set(this.birth)];
+            this.eths = [...new Set(this.eths)];
+            this.nationality = [...new Set(this.nationality)];
+            this.dhair = [...new Set(this.dhair)];
+            this.deyes = [...new Set(this.deyes)];
+            this.other = [...new Set(this.other)];
+            this.occupation = [...new Set(this.occupation)];
+        })
+
+    },
+    created() {
+    },
+    computed: {
+        resultQuery(){
+            if(this.searchQuery){
+                return this.fcs.filter((fc)=>{
+                return this.searchQuery.toLowerCase().split(' ').every(v => fc.identity[0].name.toLowerCase().includes(v))
+            })
+            }else{
+                return this.fcs;
+            }
+        }
+    },
+    methods: {
+        accordeon: function(event) {
+            event.target.classList.toggle('opened');
+        },
+        toggleFilters: function(event) {
+            openFilters = event.target;
+            filters = document.querySelector('.select');
+            filters.classList.toggle('opened');
+
+            if(filters.classList.contains('opened')) {
+                openFilters.textContent = "Close Filters";
+            } else {
+                openFilters.textContent = "Open Filters";
+            }
+        },
+        filter: function(event) {
+            var $this = event.target;
+            // check the group of the button
+            var buttonGroup = $this.closest('.button-group');
+            // get the data group of the button
+            var filterGroup = buttonGroup.getAttribute('data-filter-group');
+            this.passFocus($this, buttonGroup);
+
+            // get data of the button
+            var datafilter = $this.getAttribute('data-filter');
+            // send the data in the vue data
+            if (filterGroup == 'GENDER') {
+                this.GENDER = datafilter;
+            }
+            if (filterGroup == 'BORN') {
+                this.BORN = datafilter;
+            }
+            if (filterGroup == 'JOB') {
+                this.JOB = datafilter;
+            }
+            if (filterGroup == 'NATIONALITY') {
+                this.NATIONALITY = datafilter;
+            }
+            if (filterGroup == 'ETHNICITY') {
+                this.ETHNICITY = datafilter;
+            }
+            if (filterGroup == 'HAIR') {
+                this.HAIR = datafilter;
+            }
+            if (filterGroup == 'EYE') {
+                this.EYE = datafilter;
+            }
+            if (filterGroup == 'OTHER') {
+                this.OTHER = datafilter;
+            }
+
+            this.getResults();
+        },
+        passFocus: function($this, buttonGroup) {
+            var oldFocus = buttonGroup.querySelector('.this');
+            oldFocus.classList.remove('this');
+            $this.classList.add('this');
+        },
+        getResults() {
+            var items = document.querySelectorAll('.list_item');
+            items.forEach((fc) => {
+                fc.style.display = 'none';
+                if(fc.classList.contains(this.GENDER) && fc.classList.contains(this.BORN) && fc.classList.contains(this.JOB) && fc.classList.contains(this.NATIONALITY) && fc.classList.contains(this.ETHNICITY) && fc.classList.contains(this.HAIR) && fc.classList.contains(this.EYE) && fc.classList.contains(this.OTHER)) {
+                    fc.style.display = 'block';
+                }
+            });
+
+        }
+    }
+    })
+</script>

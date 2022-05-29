@@ -4134,6 +4134,11 @@
   "resolved" "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz"
   "version" "2.1.0"
 
+"huntjs@^5.0.0":
+  "integrity" "sha512-DbMVGtOcz4dENkMEBXMI6VX9AdhKc1ES4immqTSJoY2nMrHX2wYsKtxRB/40e1OTh5K9+ve6/cgfI9bpP1mBjQ=="
+  "resolved" "https://registry.npmjs.org/huntjs/-/huntjs-5.0.0.tgz"
+  "version" "5.0.0"
+
 "iconv-lite@0.4.24":
   "integrity" "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA=="
   "resolved" "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz"

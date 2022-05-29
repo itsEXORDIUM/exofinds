@@ -1,0 +1,24 @@
+<ul class="fc_nav">
+    <li>
+        <a :href="`/tagged/${fc.identity[0].name}`" :title="`${fc.identity[0].name}'s resources`" class="icon all">
+            <img v-if="fc.gificons[0].unabled == true" v-lazy="fc.icons[0].url" alt=""/>
+            <img v-else v-lazy="fc.img" alt=""/>
+        </a>
+    </li>
+    <li v-if="fc.avatars[0].unabled == true">
+        <a :href="`/tagged/${fc.identity[0].name} avatars`" :title="`${fc.identity[0].name}'s avatars`" class="icon avatars">avatars</a>
+    </li>
+    <li v-if="fc.gifs[0].unabled == true">
+        <a :href="`/tagged/${fc.identity[0].name} gifs`" :title="`${fc.identity[0].name}'s gifs`" class="icon gifs">gifs</a>
+    </li>
+    <li v-if="fc.crackships[0].unabled == true">
+        <a :href="`/tagged/${fc.identity[0].name} crackships`" :title="`${fc.identity[0].name}'s crackships`" class="icon crackships">crackships</a>
+    </li>
+    <li v-if="fc.icons[0].unabled == true">
+        <a :href="`/tagged/${fc.identity[0].name} icons`" :title="`${fc.identity[0].name}'s icons`" class="icon icons">icons</a>
+    </li>
+    <li v-if="fc.gificons[0].unabled == true">
+        <a :href="`/tagged/${fc.identity[0].name} gificons`" :title="`${fc.identity[0].name}'s gif icons`" class="icon gificons">gif icons</a>
+    </li>
+    <!-- <li v-if="fc.others[0].unabled == true">others</li> -->
+</ul>

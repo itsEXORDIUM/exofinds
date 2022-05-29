@@ -1,0 +1,30 @@
+<div v-for="fc in resultQuery" :key="fc.name" :class="`list_item All ${fc.gender.replace(' ', '_')} ${fc.birth[0].class} ${fc.ethnicity[0].class} ${fc.dhair} ${fc.deyes} ${fc.particularities} ${fc.nationality.toLowerCase()} ${fc.occupation[0].class}`">
+    <div>
+        <div class="img">
+            <img v-if="fc.avatars[0].url !== ''" v-lazy="fc.avatars[0].url" alt=""/>
+            <img v-else v-lazy="fc.img" alt="">
+        </div>
+        <div class="txt">
+            <div>
+                <h2>[[fc.identity[0].name]]</h2>
+                <p v-if="fc.identity[0].alias !== ''" class="subtitle">Alias [[fc.identity[0].alias]]</p>
+                <ul class="infos">
+                    <li>[[fc.gender]]</li>
+                    <li>[[fc.birth[0].full]]</li>
+                </ul>
+            </div>
+            <ul class="infos">
+                <!-- star or other if my fave -->
+                <!-- img of some sort  -->
+                <li><span>gender</span> [[fc.gender]]</li>
+                <li><span>birth date</span> [[fc.birth[0].full]]</li>
+                <li><span>nationality</span> [[fc.nationality]]</li>
+                <li><span>occupation</span> [[fc.occupation[0].full]]</li>
+                <li class="eth">
+                    <span>ethnicity</span> [[fc.ethnicity[0].full]]
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{> fc_nav}}
+</div>

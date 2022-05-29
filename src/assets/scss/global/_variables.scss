@@ -1,14 +1,14 @@
 // fonts
 :root {
-    --regular: 'Roboto', Arial, Helvetica, sans-serif;
-    --title: 'OTF', cursive;
-    --subtitle: 'SGK', Times, serif;
-    --primary-color: #655066;
-    --secondary-color: #652F21;
+    --regular: 'Work Sans', Arial, Helvetica, sans-serif;
+    --title: 'UnifrakturMaguntia', cursive;
+    --subtitle: 'Work Sans', Arial, Helvetica, sans-serif;
+    --primary-color: #52807F;
+    --secondary-color: #D73D3D;
     --light-gray: #e6e6e6;
-    --medium-gray: #cacaca;
-    --dark-gray: #8a8a8a;
-    --black: #171717;
+    --medium-gray: #8D8D8D;
+    --dark-gray: #252524;
+    --black: #0D0D0D;
     --white: #F6F6F6;
 
     // others
@@ -17,7 +17,8 @@
 }
 
 $global_transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-$header_height:3.5rem;
-$main_width: 100%;
+$header_height:4rem;
+$main_width: calc(100% - 10rem);
+$main_padding:3rem 5rem 5rem 5rem;
 $body_padding:0;
 $global_radius:0.4rem;
