@@ -1,8 +1,8 @@
 <ul class="fc_nav">
     <li>
         <a :href="`/tagged/${fc.identity[0].name}`" :title="`${fc.identity[0].name}'s resources`" class="icon all">
-            <img v-if="fc.gificons[0].unabled == true" v-lazy="fc.icons[0].url" alt=""/>
-            <img v-else v-lazy="fc.img" alt=""/>
+            <img v-if="fc.gificons[0].unabled == true" :src="fc.icons[0].url" alt=""/>
+            <img v-else :src="fc.img" alt=""/>
         </a>
     </li>
     <li v-if="fc.avatars[0].unabled == true">

@@ -52,8 +52,8 @@
     </div>
 
     <div>
-    <button @click="accordeon">Other</button>
-    <ul class="button-group" data-filter-group="OTHER">
+    <button @click="accordeon">Particularities</button>
+    <ul class="button-group" data-filter-group="PARTICULARITIES">
         <li><button class="button this" data-filter="All" @click="filter">All</button></li>
         <li v-for="item in other" :key="item"><button class="button" :data-filter="`${item.replace('_', ' ')}`" @click="filter">[[item.replace('_', ' ')]]</button></li>
     </ul>
@@ -66,4 +66,16 @@
             <li v-for="job in occupation" :key="job"><button class="button" :data-filter="`${job.replace('_', '_')}`" @click="filter">[[job.replace('_', ' ')]]</button></li>
         </ul>
     </div>
+
+    <div>
+    <button @click="accordeon">Other</button>
+    <ul class="button-group" data-filter-group="OTHER">
+        <li><button class="button this" data-filter="All" @click="filter">All</button></li>
+        <li><button class="button" :data-filter="true" @click="filter">My faves</button></li>
+    </ul>
+    </div>
+</div>
+
+<div class="reinit">
+    <button @click="filter" id="reinit">Reset</button>
 </div>

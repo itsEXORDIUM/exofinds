@@ -1,20 +1,13 @@
 #fc_panel {
-    position:fixed; top:$header_height; left:0; width:100%; height:25rem; background-color:$black; z-index:89; display:flex; justify-content:space-between;
+    width:calc(50% - 5rem); position:absolute; top:0; left:0; height:100%;
 
-    .img {display:flex; flex-direction:row-reverse; width:41rem;}
-    .img > img {height:100%; width:100%; object-fit:cover;}
+    .img, .img img {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;}
+    .img {background-color:$black;}
+    .img img {filter:grayscale(100%); opacity:0.5;}
 
-    .txt {width:calc(100% - 41rem); padding:0 5rem; display:flex; justify-content:space-between; align-items:center;
-        .left {max-width:44rem;}
-        h2 {color:$white; font-size:5em; line-height:1; margin:0;}
-        .subtitle {font-family:$subtitle; color:$white; font-size:1.5em; letter-spacing:0.3em; text-transform:uppercase; margin:0; line-height:1;}
-        ul {padding:0;}
+    .txt {position:absolute; bottom:5rem; right:5rem;}
+}
 
-        .mini_nav {display:flex; flex-wrap:wrap; width:22rem; justify-content:space-between; margin:0;}
-        .mini_nav a {display:flex; width:10.2rem; height:3.3rem; @include gradient(90deg); justify-content:center; align-items:center; text-transform:uppercase; line-height:1; font-weight:bold; letter-spacing:0.1em;}
-
-        .right {margin:0; margin-bottom:-0.5rem;}
-        .right li {margin-bottom:0.5rem; font-size:1.2em; text-transform:uppercase; letter-spacing:0.1em; font-weight:bold; }
-        .right .category {font-size:1rem; line-height:1; padding:0.2rem 1rem; border-radius:1rem; @include gradient(90deg);}
-    }
+#fc_panel + #global {
+    padding-left:calc(50% + 5rem);
 }

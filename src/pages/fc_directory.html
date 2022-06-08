@@ -1,7 +1,7 @@
 <div id="directory">
     <!-- partial filtres -->
     <div id="filters">
-        {{!> resume}}
+        {{> resume}}
 
         {{> directory_filters}}
     </div>
@@ -14,7 +14,6 @@
 </div>
 
 <script>
-    Vue.use(VueLazyload);
     new Vue({
         delimiters : ['[[',']]'],
         el: '#directory',
@@ -36,7 +35,7 @@
         ETHNICITY: 'All',
         HAIR: 'All',
         EYE: 'All',
-        OTHER: 'All',
+        PARTICULARITIES: 'All',
         responseData: [],
         page: []
     },
@@ -123,8 +122,8 @@
         resultQuery(){
             if(this.searchQuery){
                 return this.fcs.filter((fc)=>{
-                return this.searchQuery.toLowerCase().split(' ').every(v => fc.identity[0].name.toLowerCase().includes(v))
-            })
+                    return this.searchQuery.toLowerCase().split(' ').every(v => (fc.identity[0].name.toLowerCase().includes(v)) || (fc.identity[0].alias.toLowerCase().includes(v)))
+                })
             }else{
                 return this.fcs;
             }
@@ -148,37 +147,65 @@
         filter: function(event) {
             var $this = event.target;
             // check the group of the button
-            var buttonGroup = $this.closest('.button-group');
-            // get the data group of the button
-            var filterGroup = buttonGroup.getAttribute('data-filter-group');
-            this.passFocus($this, buttonGroup);
-
-            // get data of the button
-            var datafilter = $this.getAttribute('data-filter');
-            // send the data in the vue data
-            if (filterGroup == 'GENDER') {
+            if($this === document.getElementById('reinit')) {
+                var datafilter = "All";
                 this.GENDER = datafilter;
-            }
-            if (filterGroup == 'BORN') {
                 this.BORN = datafilter;
-            }
-            if (filterGroup == 'JOB') {
                 this.JOB = datafilter;
-            }
-            if (filterGroup == 'NATIONALITY') {
                 this.NATIONALITY = datafilter;
-            }
-            if (filterGroup == 'ETHNICITY') {
                 this.ETHNICITY = datafilter;
-            }
-            if (filterGroup == 'HAIR') {
                 this.HAIR = datafilter;
-            }
-            if (filterGroup == 'EYE') {
                 this.EYE = datafilter;
-            }
-            if (filterGroup == 'OTHER') {
+                this.PARTICULARITIES = datafilter;
                 this.OTHER = datafilter;
+
+                var buttons = document.querySelectorAll('#filters .button.this');
+                buttons.forEach(function(button) {
+                    button.classList.remove('this');
+                })
+                var buttons_all = document.querySelectorAll('button[data-filter="All"]');
+                buttons_all.forEach(function(button) {
+                    button.classList.add('this');
+                })
+
+                this.searchQuery = null;
+
+            } else {
+                var buttonGroup = $this.closest('.button-group');
+                // get the data group of the button
+                var filterGroup = buttonGroup.getAttribute('data-filter-group');
+                this.passFocus($this, buttonGroup);
+                // get data of the button
+                var datafilter = $this.getAttribute('data-filter');
+
+                // send the data in the vue data
+                if (filterGroup == 'GENDER') {
+                    this.GENDER = datafilter;
+                }
+                if (filterGroup == 'BORN') {
+                    this.BORN = datafilter;
+                }
+                if (filterGroup == 'JOB') {
+                    this.JOB = datafilter;
+                }
+                if (filterGroup == 'NATIONALITY') {
+                    this.NATIONALITY = datafilter;
+                }
+                if (filterGroup == 'ETHNICITY') {
+                    this.ETHNICITY = datafilter;
+                }
+                if (filterGroup == 'HAIR') {
+                    this.HAIR = datafilter;
+                }
+                if (filterGroup == 'EYE') {
+                    this.EYE = datafilter;
+                }
+                if (filterGroup == 'PARTICULARITIES') {
+                    this.PARTICULARITIES = datafilter;
+                }
+                if (filterGroup == 'OTHER') {
+                    this.OTHER = datafilter;
+                }
             }
 
             this.getResults();
@@ -192,7 +219,7 @@
             var items = document.querySelectorAll('.list_item');
             items.forEach((fc) => {
                 fc.style.display = 'none';
-                if(fc.classList.contains(this.GENDER) && fc.classList.contains(this.BORN) && fc.classList.contains(this.JOB) && fc.classList.contains(this.NATIONALITY) && fc.classList.contains(this.ETHNICITY) && fc.classList.contains(this.HAIR) && fc.classList.contains(this.EYE) && fc.classList.contains(this.OTHER)) {
+                if(fc.classList.contains(this.GENDER) && fc.classList.contains(this.BORN) && fc.classList.contains(this.JOB) && fc.classList.contains(this.NATIONALITY) && fc.classList.contains(this.ETHNICITY) && fc.classList.contains(this.HAIR) && fc.classList.contains(this.EYE) && fc.classList.contains(this.OTHER) && fc.classList.contains(this.PARTICULARITIES)) {
                     fc.style.display = 'block';
                 }
             });

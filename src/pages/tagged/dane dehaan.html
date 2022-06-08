@@ -1,0 +1,91 @@
+<div id="fc_panel">
+    <div class="img">
+        <img :src="fc.img" alt=""/>
+    </div>
+
+    {{> fc_nav}}
+
+    <div class="txt">
+        <div class="left">
+            <h2>[[fc.identity[0].name]]</h2>
+        </div>
+
+        <ul class="infos">
+            <li><span>gender</span> [[fc.gender]]</li>
+            <li v-if="fc.birth[0].full !== ''"><span>birth date</span> [[fc.birth[0].full]]</li>
+            <li v-else><span>birth date</span> unknown</li>
+            <li v-if="fc.nationality !== ''"><span>nationality</span> [[fc.nationality]]</li>
+            <li v-else><span>nationality</span> unknown</li>
+            <li v-if="fc.occupation[0].full !== ''"><span>occupation</span> [[fc.occupation[0].full]]</li>
+            <li v-else><span>occupation</span> unknown</li>
+            <li v-if="fc.ethnicity[0].full !== ''" class="eth">
+                <span>ethnicity</span> [[fc.ethnicity[0].full]]
+            </li>
+            <li class="eth" v-else><span>ethnicity</span> unknown ([[fc.ethnicity[0].class]])</li>
+        </ul>
+    </div>
+</div>
+
+{{> posts_container}}
+
+<script>
+    var app = new Vue({
+        delimiters : ['[[',']]'],
+        el: '#fc_panel',
+        data: {
+        fcs: [],
+        fc: {},
+        fc_name: '',
+        hasAlias: false,
+        badRoute: false
+      },
+      mounted() {
+        axios.get('https://raw.githubusercontent.com/itsEXORDIUM/my-assets/main/jsons/exofinds_fcs_new.json')
+        .then(response => {
+            this.fcs = response.data.fcs;
+
+            // check if current fc
+            let current_url = window.location.pathname;
+            let self = this;
+
+            if(current_url != '/') {
+                // let directory = document.getElementById('directory');
+                // directory.style.display = "none";
+            }
+
+            if(current_url.includes('tagged')) {
+                let clear_url = current_url.replace('/tagged/', '');
+                let lowercased = clear_url.toLowerCase();
+                let tagged = lowercased.replaceAll('%20', ' ');
+                tagged = tagged.replaceAll('.html', '');
+
+                if (tagged.includes('%27')) {
+                    tagged = tagged.replaceAll('%27', '\'');
+                } else if (tagged.includes('%c3%b8')) {
+                    tagged = tagged.replace('%c3%b8', 'ø');
+                }
+
+                this.fcs.forEach(function(fc) {
+                    if(tagged.includes(fc.identity[0].name.toLowerCase())) {
+                        self.fc = fc;
+
+                       //on ajoute la classe sur le body
+                       $('#index').addClass('tagged');
+                    }
+                });
+
+                this.getLastAvatar();
+            }
+        })
+      },
+      methods: {
+          getLastAvatar: function() {
+            // $.ajax("https://exofinds.tumblr.com/tagged/deathbyromy", {
+            //     success: function(response) {
+            //     $("body").html(response);
+            //     }
+            // });
+          }
+      }
+    })
+</script>
