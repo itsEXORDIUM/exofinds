@@ -8,6 +8,8 @@
     <div class="txt">
         <div class="left">
             <h2>[[fc.identity[0].name]]</h2>
+            <p class="subtitle" v-if="fc.identity[0].accent">[[fc.identity[0].accent]]</p>
+            <p class="subtitle" v-if="fc.identity[0].alias">alias [[fc.identity[0].alias]]</p>
         </div>
 
         <ul class="infos">
@@ -22,6 +24,7 @@
                 <span>ethnicity</span> [[fc.ethnicity[0].full]]
             </li>
             <li class="eth" v-else><span>ethnicity</span> unknown ([[fc.ethnicity[0].class]])</li>
+            <li class="particularities" v-if="fc.particularities"><span>particularities</span> [[fc.particularities]]</li>
         </ul>
     </div>
 </div>
