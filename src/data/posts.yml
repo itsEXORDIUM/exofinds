@@ -1,5 +1,62 @@
 posts:
   items:
+    - type: "text"
+      title: "Block texte"
+      rebloggedusername: "rebloggedusername"
+      IsDeactivated: true
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      PinnedPostLabel: "Pinned"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      imagetext:
+        url: "../assets/img/text_post/imagetext.gif"
+        width: 245
+        height: 130
+      videotext:
+        url: "https://safe.txmblr.com/svc/embed/inline/https%3A%2F%2Fyoutu.be%2FeA37pjvjRVU#embed-61e817b59cf41108630919-partied"
+        width: 500
+        height: 280
+      gifreacttext:
+        url: "https://64.media.tumblr.com/e218b66f42f29856c77314c598560f48/de9ed536bff8ad43-dd/s500x750/421f6f2279d0f10bb15966ddecda9ba1bccf1d30.gifv"
+        width: 500
+        height: 370
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "link"
+      Thumbnail-HighRes: "../assets/img/thumbnail.gif"
+      Name: "winter soldier"
+      Excerpt: "Description du lien"
+      Host: "wintersoldier.com"
+      Description: "Description"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "photo"
+      PhotoURL-HighRes: "../assets/img/PhotoURL-HighRes.jpg"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
     - type: "photoset"
       rebloggedusername: "reblogged"
       rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
@@ -10,8 +67,92 @@ posts:
       lang:Source: "Source"
       photosetiframe:
         url: https://testexordium.tumblr.com/post/672827722766172160/photoset_iframe/testexordium/tumblr_r5eftiyKDv1ymx6e1/700/false
-        width: 700
-        height: 497
+        width: 405
+        height: 405
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "video"
+      videoSRC: "https://www.youtube.com/embed/Xk14P2TK0KQ"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "quote"
+      Quote: "Who the hell is Bucky"
+      Source: "Bucky Barnes"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "chat"
+      Title: "Chat title"
+      chats:
+        - Label: "Steve"
+          Line: "You're my friend."
+        - Label: "Bucky"
+          Line: "You're my mission !"
+        - Label: "Steve"
+          Line: "Then finish it. 'Cause I'm with you 'til the end of the line."
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "answer"
+      AskerPortraitURL-64: "../assets/img/portraitURL-64.png"
+      Asker: <a href="#" class="asker">askername</a>
+      Question: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum rhoncus ultrices. Donec egestas lectus in tincidunt eleifend. In maximus, ex vel tristique eleifend, odio nisi dictum magna, pellentesque porttitor erat ante quis dui. Ut ante sem, lacinia quis massa et, pretium volutpat tellus. Suspendisse condimentum imperdiet neque, eu volutpat odio varius facilisis. Morbi nec massa vehicula, vestibulum nulla in, sagittis velit. Ut ultricies gravida orci malesuada tincidunt.</p>
+      AnswererPortraitURL-64: "../assets/img/avatar.jpg"
+      Answerer: "Answerer"
+      Answer: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum rhoncus ultrices. Donec egestas lectus in tincidunt eleifend. In maximus, ex vel tristique eleifend, odio nisi dictum magna, pellentesque porttitor erat ante quis dui. Ut ante sem, lacinia quis massa et, pretium volutpat tellus. Suspendisse condimentum imperdiet neque, eu volutpat odio varius facilisis. Morbi nec massa vehicula, vestibulum nulla in, sagittis velit. Ut ultricies gravida orci malesuada tincidunt.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum rhoncus ultrices. Donec egestas lectus in tincidunt eleifend. In maximus, ex vel tristique eleifend, odio nisi dictum magna, pellentesque porttitor erat ante quis dui. Ut ante sem, lacinia quis massa et, pretium volutpat tellus. Suspendisse condimentum imperdiet neque, eu volutpat odio varius facilisis. Morbi nec massa vehicula, vestibulum nulla in, sagittis velit. Ut ultricies gravida orci malesuada tincidunt.</p>
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      noReblog: true
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
+      tags:
+        - Tag: "Tag"
+        - Tag: "Tag1"
+        - Tag: "Autre tag"
+    - type: "audio"
+      AlbumArtURL: "../assets/img/album.jpg"
+      TrackName: "My name"
+      Artist: "Shinedown"
+      Album: "amaryllis"
+      rebloggedusername: "reblogged"
+      rebloggedportraitURL-64: "../assets/img/portraitURL-64.png"
+      Month: "January"
+      DayOfMonth: "13"
+      Year: "2022"
+      NoteCountWithLabel: "20 notes"
+      lang:Source: "Source"
       tags:
         - Tag: "Tag"
         - Tag: "Tag1"

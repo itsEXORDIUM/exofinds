@@ -1,8 +1,8 @@
 // fonts
 :root {
-    --regular: 'Work Sans', Arial, Helvetica, sans-serif;
+    --regular: 'Cabin', Arial, Helvetica, sans-serif;
     --title: 'UnifrakturMaguntia', cursive;
-    --subtitle: 'Work Sans', Arial, Helvetica, sans-serif;
+    --subtitle: 'Cabin', Arial, Helvetica, sans-serif;
     --primary-color: #52807F;
     --secondary-color: #D73D3D;
     --light-gray: #e6e6e6;
@@ -12,8 +12,8 @@
     --white: #F6F6F6;
 
     // others
-    --post-size: 50rem;
-    --sidebar-img: true;
+    --post-size: 41.5rem;
+    --sidebar-img: false;
 }
 
 $global_transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);

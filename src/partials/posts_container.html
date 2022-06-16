@@ -1,7 +1,14 @@
 <div id="global">
     {{#posts}}
         {{#each posts.items}}
-            <article class="post" id="{PostID}">
+            <article class="post {{type}}" id="{PostID}">
+                {{#if PinnedPostLabel}}
+                    {{> pinnedPost}}
+                {{/if}}
+
+                {{#unless noReblog}}
+                    {{> reblogged}}
+                {{/unless}}
 
                 {{#ifequal type "text"}}
                     {{> text_post reblogged="true"}}
@@ -40,10 +47,6 @@
                 {{/ifequal}}
 
                 <div class="body">
-                    {{#unless noReblog}}
-                        {{> reblogged}}
-                    {{/unless}}
-
                     {{#ifequal type "text"}}
                     {{else}}
                         {{#if body}}
@@ -62,26 +65,25 @@
 
                 <!----- INFO ----->
                 <div class="infos">
-                {{#if PinnedPostLabel}}
-                    {{> pinnedPost}}
-                {{/if}}
-                {{> date}}
-                {{> noteCount}}
+                    <div class="contain_date">
+                        {{> date}}
+                    </div>
+                    <div class="notes_tags">
+                        <p class="top">
+                            {{> noteCount}} | {{> rebloggedFrom}} | {{> contentSource}}
+                        </p>
 
-                <!-- reblog info and content source on permalink pages -->
-                {{> rebloggedFrom}}
-                {{> contentSource}}
-
-                <!-- like and reblog buttons -->
-                {{> reblog_btn}}
-                {{> like_btn}}
+                        <!----- TAGS ----->
+                        {{#if tags}}
+                            {{> tags}}
+                        {{/if}}
+                    </div>
 
                 </div>
 
-                <!----- TAGS ----->
-                {{#if tags}}
-                    {{> tags}}
-                {{/if}}
+                <!-- like and reblog buttons -->
+                {{!> reblog_btn}}
+                {{!> like_btn}}
 
                 {{#if postNotes}}
                     <!----- POST NOTES ----->

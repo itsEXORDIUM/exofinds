@@ -39,7 +39,7 @@
 body {
     font-family: $body-font-family;
     font-size: $global-font-size;
-    color: $body-font-color;
+    color:$white;
     background-color: $body-background;
     line-height: $global-lineheight;
     word-wrap: break-word;
@@ -81,7 +81,6 @@ big {font-size: 1.1em;}
 
 ol, ul {
     margin-bottom:$list-margin-bottom;
-    list-style-type:$list-style-type;
     list-style-position: $list-style-position;
 
     li {

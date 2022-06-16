@@ -1,43 +1,98 @@
-$article_padding: 0;
-$article_margin_bottom: 10rem;
-$article_background_color: transparent;
+$article_padding: 0.5rem;
+$article_margin_bottom: 4rem;
+$article_background_color: $dark-gray;
+
+#global {height:100%; overflow:auto;}
 
 article.post {
     width: $post_size;
     position: relative;
     margin-bottom: $article_margin_bottom;
-    padding:$article_padding;
+    padding:2.5rem $article_padding $article_padding $article_padding;
     background-color:$article_background_color;
-}
+    color: $body-font-color;
+    &.text, &.quote, &.chat, &.answer {
+        padding:3.5rem 2rem 0 2rem;
+        .infos {padding:1rem 0;}
+    }
 
-.post * {max-width: 100%;}
-a.pinned {font-weight: bold; color: $secondary_color;}
+    p {letter-spacing:$global-font-spacing;}
 
-.body {
-    margin-top: 2em; list-style-type: none;
-    &:first-of-type {margin-top: 0;}
+    * {max-width: 100%;}
+    h1, h2, h3, h4, h5, h6 {margin-top:0; font-weight:normal;}
+    h1 {font-size:2.5em; line-height:1;}
+    h3 {color:$white; font-weight:bold; font-family:$regular; }
+
+    a.pinned {background-color:$primary_color; text-indent:-99999em; display:block; position:absolute; top:0; left:0; width:2rem; height:2rem; background-image:url('../img/SVG/pinned.svg'); background-size:1.4rem auto; background-position:center center; background-repeat:no-repeat; z-index:2;}
+
+    .rebloggedFrom {
+        position:absolute; top:0; left:0; min-height:2rem; padding:0 1rem; background-color:$black; color:$white; text-transform:uppercase; line-height:2rem; font-size:1rem; width:100%;
+        .username {font-size:1rem;}
+    }
+
+    figure.tmblr-full {
+        position:relative;
+        .tmblr-attribution {
+            position:absolute; left:0; bottom:0; margin:0; padding:0.3rem 0.5rem; z-index:0; text-transform:uppercase; font-size:0.7em; line-height:1; color:$black; letter-spacing:0.1em;
+            &::after {content:''; display:block; position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; background-color:$light_gray; mix-blend-mode:exclusion;}
+        }
+    }
+
+    .read_more_container {font-size:1rem;}
+    .read_more {line-height:1em; text-transform:uppercase; color:$white; display:inline-block; padding:0.3rem 0.5rem; background-color:$primary_color; }
+
+    /*** FOOTER ***/
+    .infos {
+        display:flex; justify-content:space-between; align-items:center; border-top:0.1rem solid $medium_gray; padding:1rem 1.5rem 1rem 1.5rem; margin-top:1rem;
+
+        .contain_date {
+            width:15rem;
+            .date {font-family:$title; color:$white; font-size:2.5rem; line-height:1; letter-spacing:0.05em; text-transform:lowercase;}
+        }
+        .notes_tags {
+            width:calc(100% - 15rem); padding-left:1.5rem;
+            p.top {
+                text-transform:uppercase; font-size:0.8rem; line-height:1rem; letter-spacing:0.15em; margin-top:0;
+                a {color:$white;}
+            }
+
+            .tags {
+                font-size:0.8rem; line-height:1rem; letter-spacing:0.05em;
+                a {
+                    color:$white; margin-right:0.5rem;
+                    span {color:$primary_color;}
+                }
+            }
+        }
+    }
 }
 
 // avatar icon
 .avatar_icon {
     display: inline-block;
     vertical-align: middle;
-    width: 2em;
-    height: 2em;
-    margin-right: 1em;
-    border-radius:50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.7rem;
+    filter:grayscale(100%);
+
+    &:is(:hover, :focus) {filter:grayscale(0);}
 }
 
 .username {
     display: inline-block;
-    vertical-align: middle;
-    font-weight: bold;
+    font-weight:500;
+    text-transform:uppercase;
+    font-size:1.2rem;
+    letter-spacing:0.1em;
+
+    a {color:$white;}
 
     &.deactived::after {
         content: '(deactivated)';
         margin-left: 1em;
         opacity: 0.75;
-        color: $dark_gray;
+        color: $medium_gray;
     }
 }
 
@@ -101,13 +156,13 @@ strike {text-decoration: line-through;}
 .question {
     border-bottom: 1px solid $medium_gray; padding-bottom: 2em;
     .asking {
-        display: inline-block; 
+        display: inline-block;
         margin-left: 1em;
         font-weight: bold;
     }
 }
 
-// audio 
+// audio
 .audio {
     padding: 2em; border: 1px solid $medium_gray;
 
@@ -119,13 +174,13 @@ strike {text-decoration: line-through;}
         width: 100px;
         height: 100px;
     }
-    
+
     .audio-player-wrap {
         width: 100px;
         height: 100px;
         display: inline-block;
     }
-     
+
     .button {
         width: 30px;
         height: 30px;
@@ -134,7 +189,7 @@ strike {text-decoration: line-through;}
         z-index: 2;
         margin: 7px;
     }
-     
+
     .audio_container {
         background-color: $white;
         z-index: 3;
@@ -142,7 +197,7 @@ strike {text-decoration: line-through;}
         margin: 28px 0 0 28px;
         border-radius: 50%;
     }
-     
+
     .audio_infos {
         display: inline-block;
         height: 100px;
@@ -155,25 +210,19 @@ strike {text-decoration: line-through;}
         padding-left: 2em;
         li {list-style-type: none;}
     }
-    
+
     .track {font-weight: 600;}
 
 }
 
 /*----- INFO -----*/
-
-.infos {
-    margin-top: 2em;
-    a {display: inline-block; vertical-align: middle;}
-}
-
 .likeb {
     position: relative;
     display: inline-block;
     height: 1.6em;
     margin-bottom: -1px;
 }
- 
+
 .likeb .like_button iframe {
     position: absolute;
     top: 0;
@@ -188,8 +237,6 @@ strike {text-decoration: line-through;}
 .likeb .liked + .actual-button {color:$primary-color;}
 .likeb .liked + .actual-button:after {content: 'd';}
 
-.info a, .tags a {margin-right: 0.75em;}
-
 /*---- POST NOTES -----*/
 
 .notes_container {
@@ -197,7 +244,7 @@ strike {text-decoration: line-through;}
         max-width: 100%;
         padding: 0;
         margin: 2em 0 0 0;
-    
+
         li.note {
             padding: 0.5em 0; list-style-type: none;
             img.avatar {
