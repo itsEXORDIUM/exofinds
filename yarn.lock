@@ -3431,9 +3431,9 @@
     "mime-types" "^2.1.12"
 
 "foundation-sites@latest":
-  "integrity" "sha512-HgQA6iUQTEkRSeNwiRQH2PvTXkXGBfBpRS6CTm2auhKpyU4Tea7so3IPKrazSciE7nyv1Vp9WNKdH9fBPLbGeA=="
-  "resolved" "https://registry.npmjs.org/foundation-sites/-/foundation-sites-6.7.3.tgz"
-  "version" "6.7.3"
+  "integrity" "sha512-2QPaZJ0Od0DyklhQyKC3zPbr8AAUXSkr1scZJrQTgj/KTLresuCgUBfi7ft32NlOWhuqVXisjOgTE8N5EPS3cg=="
+  "resolved" "https://registry.npmjs.org/foundation-sites/-/foundation-sites-6.7.4.tgz"
+  "version" "6.7.4"
 
 "fraction.js@^4.1.1":
   "integrity" "sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg=="
@@ -3461,7 +3461,7 @@
     "readable-stream" "^2.0.0"
 
 "front-matter@^2.0.5":
-  "integrity" "sha1-cgOviWzjV+4E4qpFFp6pHtf2dQQ="
+  "integrity" "sha512-+gOIDsGWHVAiWSDfg3vpiHwkOrwO4XNS3YQH5DMmneLEPWzdCAnbSQCtxReF4yPK1nszLvAmLeR2SprnDQDnyQ=="
   "resolved" "https://registry.npmjs.org/front-matter/-/front-matter-2.3.0.tgz"
   "version" "2.3.0"
   dependencies:
@@ -4725,7 +4725,7 @@
     "merge-stream" "^2.0.0"
     "supports-color" "^8.0.0"
 
-"jquery@^3.6.0", "jquery@>=2.2.0":
+"jquery@^3.6.0", "jquery@>=2.2.0", "jquery@>=3.6.0":
   "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
   "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
   "version" "3.6.0"
@@ -5735,7 +5735,7 @@
     "arch" "^2.1.0"
 
 "os-homedir@^1.0.0":
-  "integrity" "sha1-/7xJiDNuDoM94MFox+8VISGqf7M="
+  "integrity" "sha512-B5JU3cabzk8c67mRRd3ECmROafjYMXbuzlwtqdM8IbS8ktlTix8aFGb2bAGKrSRIlnfKwovGUUr72JUPyOb6kQ=="
   "resolved" "https://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz"
   "version" "1.0.2"
 
@@ -5747,7 +5747,7 @@
     "lcid" "^1.0.0"
 
 "os-tmpdir@^1.0.0":
-  "integrity" "sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ="
+  "integrity" "sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g=="
   "resolved" "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz"
   "version" "1.0.2"
 
@@ -6895,7 +6895,7 @@
   "version" "3.0.5"
 
 "slash@^1.0.0":
-  "integrity" "sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU="
+  "integrity" "sha512-3TYDR7xWt4dIqV2JauJr+EJeW356RXijHeUlO+8djJ+uBXPn8/2dpzBc8yQhh583sVvc9CvFAeQVgijsH+PNNg=="
   "resolved" "https://registry.npmjs.org/slash/-/slash-1.0.0.tgz"
   "version" "1.0.0"
 
@@ -8024,7 +8024,7 @@
     "watchpack" "^2.2.0"
     "webpack-sources" "^3.2.0"
 
-"what-input@^5.2.10", "what-input@>=4.1.0":
+"what-input@^5.2.10", "what-input@>=5.2.10":
   "integrity" "sha512-7AQoIMGq7uU8esmKniOtZG3A+pzlwgeyFpkS3f/yzRbxknSL68tvn5gjE6bZ4OMFxCPjpaBd2udUTqlZ0HwrXQ=="
   "resolved" "https://registry.npmjs.org/what-input/-/what-input-5.2.10.tgz"
   "version" "5.2.10"
