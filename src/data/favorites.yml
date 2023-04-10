@@ -1,0 +1,51 @@
+- name: 'YUNGBLUD'
+  alias: 'Dominic Harrison'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/yb.jpg'
+- name: 'Dane Dehaan'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/dane.jpg'
+- name: 'Remington Leith'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/remi.jpg'
+- name: 'Frances Bean Cobain'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/frances.jpg'
+- name: 'Lilith Czar'
+  alias: 'Juliet Simms'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/lilith.jpg'
+- name: 'DEATHBYROMY'
+  alias: 'Romy Flores'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/romy.jpg'
+- name: 'Andy Biersack'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/andy.jpg'
+- name: 'Jake Bass'
+  tags:
+    - tag: musician
+    - tag: tattoos
+    - tag: blue eyes
+  img: '../../assets/img/faves/jake.jpg'

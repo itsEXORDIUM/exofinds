@@ -1,0 +1,77 @@
+<!-- partials/bloc_home/latest -->
+<link rel="stylesheet" href="../assets/css/components/latest.css">
+
+<div class="latest bloc_home grid-container">
+    <div class="bloc_home_title">
+        <h2>
+            Latest Works
+            <span class="mini">in coding</span>
+        </h2>
+    </div>
+
+    <div class="container container_slider">
+        {{#each latest_design}}
+            <div class="item">
+                <div class="link">
+                    <div class="txt">
+                        <p class="mini">{{date}}</p>
+                        <h3>{{name}}</h3>
+
+                        <p class="desc mini">
+                            <span class="nb">{{nb}}</span>
+                            <span>{{desc}}</span>
+                        </p>
+                    </div>
+                    <div class="img">
+                        <img class="lazy" src="{{img}}" width="400" height="640" alt=""/>
+                    </div>
+                    <div class="hover">
+                        <p class="btn_round big arrow">
+                            <a href="">
+                                <svg viewBox="0 0 100 100" width="100" height="100">
+                                    <defs>
+                                      <path id="latest_arrow"
+                                        d="
+                                          M 50, 50
+                                          m -37, 0
+                                          a 37,37 0 1,1 74,0
+                                          a 37,37 0 1,1 -74,0"/>
+                                    </defs>
+                                    <text font-size="12">
+                                      <textPath xlink:href="#latest_arrow">
+                                        See the post &nbsp;•&nbsp; See the post &nbsp;•&nbsp; See the post &nbsp;•&nbsp;
+                                      </textPath>
+                                    </text>
+                                  </svg>
+                            </a>
+                        </p>
+                        <p class="btn_link">
+                            <a href="">
+                                <span class="mini">See all posts for</span>
+                                <span>{{name}}</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="btn_container grid-x grid-padding-x align-right">
+        <p class="btn_all cell shrink">
+            <a href="">
+                <span>See all avatars</span>
+            </a>
+        </p>
+        <p class="btn_all cell shrink">
+            <a href="">
+                <span>See all gifs</span>
+            </a>
+        </p>
+        <p class="btn_all cell shrink">
+            <a href="">
+                <span>See all crackships</span>
+            </a>
+        </p>
+    </div>
+</div>

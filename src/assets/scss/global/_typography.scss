@@ -1,2 +1,108 @@
-// UnifrakturMaguntia, Work Sans
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=UnifrakturMaguntia&display=swap');
+/***********************************/
+/************** TITLES *************/
+/***********************************/
+
+    h1 {font-size:map-deep-get($header-styles, large, h1, font-size);}
+    h2 {font-size:map-deep-get($header-styles, large, h2, font-size);}
+    h3 {font-size:map-deep-get($header-styles, large, h3, font-size);}
+    h4 {font-size:map-deep-get($header-styles, large, h4, font-size);}
+    h5 {font-size:map-deep-get($header-styles, large, h5, font-size);}
+    h6 {font-size:map-deep-get($header-styles, large, h6, font-size);}
+
+/***********************************/
+/************* A, UL... ************/
+/***********************************/
+
+    a, button {transition:$global-transition; color:$white;}
+    a:is(:hover, :focus) {color:inherit;}
+    button {cursor:pointer;}
+
+    ul, ol {
+        list-style:none;
+
+        li {font-size:map-deep-get($header-styles, large, p, font-size);}
+        li::before {color:$primary; display:inline-block; width:1em;}
+    }
+    ul > li::before {content: "•"; margin-left:-1em;}
+    ol {counter-reset:li;}
+    ol > li {counter-increment:li;}
+    ol > li:before {content:counter(li); margin-left:-1.5em; margin-right:0.5em; text-align:right; direction:rtl;}
+
+    // Ps
+    p {font-size:map-deep-get($header-styles, large, p, font-size);}
+    p.mini {@include mini; margin-bottom:0;}
+
+/***********************************/
+/************* BOUTONS *************/
+/***********************************/
+
+    .btn_container {margin-top:3.5rem;}
+
+    .btn_all {
+        font-size:map-deep-get($header-styles, large, p, font-size); line-height:1; font-family:$title;
+        > *:is(a, button) {display:inline-block; transform:skewX(-10deg); background-color:transparent; color:$white; padding:1rem 2.5rem; transition:$global-transition; border:0.1rem solid $white;}
+        > * > * {transform:skew(10deg); display:inline-block;}
+
+        // hover, focus
+        > *:is(a, button):is(:hover, :focus) {background-color:$primary;}
+    }
+
+    .btn_round {
+        font-size:map-deep-get($button-sizes, small); line-height:1; font-family:$regular;
+        > *:is(a, button) {display:inline-block; transition:$global-transition; color:$white; position:relative; width:5rem; height:5rem}
+        > * > * {fill:$white; text-transform:uppercase; letter-spacing:0.1em; opacity:0; animation: btnRound 8s linear infinite; transition:$global-transition; position:absolute; top:-2.5rem; left:-2.5rem;}
+
+        > *:is(a, button)::before {content:''; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background-repeat:no-repeat; background-size:1.8rem auto; background-position:center center; background-color:$primary; border-radius:50%; width:100%; height:100%; display:block; transition:$global-transition;}
+        &.like > *:is(a, button)::before {background-image:url('../img/SVG/white/like.svg');}
+        &.arrow > *:is(a, button)::before {background-image:url('../img/SVG/white/next.svg');}
+
+        &.big {
+            transform:scale(2);
+            > * > * text {font-size:0.6em;}
+        }
+
+        // hover, focus
+        > *:is(a, button):is(:hover, :focus) {
+            > * {opacity:1;}
+            &::before {background-color:transparent;}
+        }
+
+        @keyframes btnRound {
+            0% {transform:rotate(0);}
+            100% {transform:rotate(360deg);}
+        }
+    }
+
+    .btn_link {
+        font-size:map-deep-get($button-sizes, large); line-height:1; font-family:$title; text-align:center;
+        > *:is(a, button) {color:$white; display:inline-block;}
+        > * > span:not(.mini) {display:inline-block; text-align:center; position:relative; padding-bottom:0.5rem;}
+        span.mini {@include mini; display:block; font-family:$regular; padding-bottom:0.5rem;}
+        > * > span:not(.mini)::before {content:''; display:block; position:absolute; width:0; height:0.2rem; background-color:$white; left:50%; bottom:0; transition:$global-transition; transform:translateX(-50%);}
+
+        // hover, focus
+        > * > span:not(.mini):is(:hover, :focus)::before {width:100%;}
+    }
+
+    .btn_arrow {
+        font-size:map-deep-get($button-sizes, large); line-height:1;
+        > * {position:relative; display:inline-block; width:4rem; height:3rem; background-repeat:no-repeat; background-size:4rem auto; background-position:center center; transition:$global-transition;}
+
+        &.slick-disabled {opacity:0.4; cursor:not-allowed;}
+    }
+
+    .btn_next {
+        > * {background-image:url('../img/SVG/white/next.svg');}
+
+        // hover, focus
+        &:not(.slick-disabled) > *:is(:hover, :focus) {background-image:url('../img/SVG/white/next_full.svg');}
+    }
+
+    .btn_prev {
+        > * {background-image:url('../img/SVG/white/prev.svg');}
+
+        // hover, focus
+        &:not(.slick-disabled) > *:is(:hover, :focus):not(.slick-disabled) {background-image:url('../img/SVG/white/prev_full.svg');}
+    }
+
+    .tag {padding:0.5rem; border:0.1rem solid $white; font-weight:bold; @include mini;}

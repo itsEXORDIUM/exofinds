@@ -1,0 +1,48 @@
+@import '../global/settings';
+@import 'foundation';
+@import '../custom/mixins';
+
+/*************************************************/
+/*************** CURRENT - BLOC HOME *************/
+/*************************************************/
+
+    #current.bloc_home {
+        img {filter:grayscale(100%);}
+
+        #requests {
+            .left_side .img {@include imgFilter;}
+            .left_side .img img {width:100%; height:60rem; object-fit:cover;}
+
+            .left_side + .txt {padding-top:4rem;}
+
+            .txt {
+                ul li::before {display:none;}
+                ul li {font-size:map-deep-get($header-styles, large, h6, font-size); }
+                ul li .item {display:flex; flex-direction:row-reverse; align-items:center; padding:1.5rem 1.5rem 1.5rem 0; border-bottom:0.1rem solid rgba(255,255,255,0.5);}
+                ul li:nth-child(2) .item, ul li:first-child .item {border-top:0.1rem solid rgba(255,255,255,0.5);}
+                ul li .txt {width:calc(100% - 9rem); padding-left:3rem;}
+
+                .title {font-size:1em; margin-bottom:0;}
+
+                // item done
+                    ul li .item.done {@include imgFilter; background-color:black;}
+                    ul li .item.done .img {position:relative;}
+                    ul li .item.done .img .tag {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:5; background-color:$primary;}
+
+            }
+
+            .txt .img {
+                img {@include bulleImg;}
+            }
+        }
+
+        #suggestions {
+            margin-top:-6rem; position:relative; z-index:1;
+            .img {@include imgFilter; height:45rem;}
+            .img::after {width:50vw;}
+            .img img {object-fit:cover; position:absolute; top:0; left:0; width:50vw; height:100%; max-width:50vw;}
+
+            .txt .list {background-color:$black; padding:3rem; min-height:100%;}
+            .txt ol {margin-left:6.5rem; margin-bottom:0;}
+        }
+    }

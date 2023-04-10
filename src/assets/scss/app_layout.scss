@@ -1,0 +1,73 @@
+@import './global/settings';
+@import 'foundation';
+
+/***********************************/
+/********* HTML, BODY, MAIN ********/
+/***********************************/
+
+    body {min-height:100vh; height:100%;}
+    main:before {animation: grain 8s steps(10) infinite; background-image:url('https://tympanus.net/Development/MenuThumbStackAnimation/noise.f31eb271.png'); content:""; height:300%; left:-50%; opacity:.6; position:fixed; top:-100%; width:300%;}
+
+    @keyframes grain {
+        0%,to {transform: translate(0)}
+        10% {transform: translate(-5%,-10%)}
+        20% {transform: translate(-15%,5%)}
+        30% {transform: translate(7%,-25%)}
+        40% {transform: translate(-5%,25%)}
+        50% {transform: translate(-15%,10%)}
+        60% {transform: translate(15%)}
+        70% {transform: translateY(15%)}
+        80% {transform: translate(3%,35%)}
+        90% {transform: translate(-10%,10%)}
+    }
+
+/***********************************/
+/************** HEADER *************/
+/***********************************/
+
+    header {
+        padding:3rem 5rem 0 5rem; z-index:99; position:fixed; top:0; left:0; width:100%;
+
+        // logo
+        #logo {margin-bottom:0; line-height:1; width:13.2rem; height:5.4rem; margin-right:3.5rem;}
+        #logo a {display:block;}
+        #logo a img {display:block; transform:translateY(2rem);}
+
+            // hover, focus
+            #logo  a:is(:hover, :focus) {opacity:0.8;}
+
+        // right side
+            .right_cell {border-bottom:0.1rem solid rgba($white, 0.2);}
+            // menu nav
+            nav > ul {
+                padding:0 0 2.5rem 0; margin-bottom:0;
+
+                li::before {display:none;}
+                li {font-size:map-get($header-styles, large, p, font-size); font-family:$title;}
+                li a {color:$white; text-align:right; line-height:1; position:relative; padding-bottom:0.5rem;}
+                li a span {font-family:$regular; font-size:map-get($button-sizes, tiny); text-transform:uppercase; display:block; color:$primary; line-height:1;}
+
+                // hover, focus
+                li a::before {content:''; display:block; position:absolute; width:0; height:0.2rem; background-color:$white; left:50%; bottom:0; transition:$global-transition; transform:translateX(-50%);}
+                li a:is(:hover, :focus)::before {width:100%;}
+            }
+
+            // burger btn
+    }
+
+/***********************************/
+/************** FOOTER *************/
+/***********************************/
+
+    footer {
+        overflow-x:hidden; padding-bottom:3rem;
+        .logo_footer {
+            position:relative; padding:0 3.5rem;
+            img {transition:$global-transition;}
+            &:is(:hover, :focus) img {opacity:0.8;}
+
+            &::before, &::after {content:''; display:block; position:absolute; width:50vw; height:0.1rem; top:50%; background-color:$white; opacity:0.2;}
+            &::before {left:0; transform:translateX(-100%);}
+            &::after {right:0; transform:translateX(100%);}
+        }
+    }

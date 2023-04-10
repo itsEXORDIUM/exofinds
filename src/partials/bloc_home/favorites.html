@@ -1,0 +1,66 @@
+<!-- partials/bloc_home/favorites -->
+<link rel="stylesheet" href="../assets/css/components/favorites.css">
+
+<div id="favorites" class="bloc_home grid-container">
+    <div class="bloc_home_title">
+        <h2>Favorite FCs</h2>
+    </div>
+
+    <div class="grid-x grid-padding-x">
+        {{#each favorites}}
+            <div class="cell container_item large-6">
+                <div class="item">
+                    <div class="top">
+                        <h3 class="title">{{name}}</h3>
+                        {{#if alias}}
+                            <p class="mini">{{alias}}</p>
+                        {{/if}}
+                    </div>
+
+                    <div class="url">
+                        <img src="{{img}}" width="90" height="90" alt=""/>
+                        <p class="btn_round big arrow">
+                            <a href="">
+                                <svg viewBox="0 0 100 100" width="100" height="100">
+                                    <defs>
+                                    <path id="circle_round_{{name}}"
+                                        d="
+                                        M 50, 50
+                                        m -37, 0
+                                        a 37,37 0 1,1 74,0
+                                        a 37,37 0 1,1 -74,0"/>
+                                    </defs>
+                                    <text font-size="12">
+                                    <textPath xlink:href="#circle_round_{{name}}">
+                                        See &nbspall &nbspcreations &nbsp&nbsp;•&nbsp;&nbsp See &nbspall &nbspcreations &nbsp&nbsp;•&nbsp;&nbsp
+                                    </textPath>
+                                    </text>
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
+
+                    <ul class="tags grid-x grid-padding-x">
+                        {{#each tags}}
+                            <li class="cell shrink">
+                                <span class="tag">{{tag}}</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+
+                    <div class="img">
+                        <img src="{{img}}" width="688" height="218" alt=""/>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="btn_container grid-x grid-padding-x align-center">
+        <p class="btn_all cell shrink">
+            <a href="">
+                <span>See all my faves</span>
+            </a>
+        </p>
+    </div>
+</div>

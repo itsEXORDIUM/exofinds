@@ -14,6 +14,7 @@ import autoprefixer  from 'autoprefixer';
 import imagemin      from 'gulp-imagemin';
 import dartSass      from 'sass';
 import gulpSass      from 'gulp-sass';
+import cache         from 'gulp-cached';
 
 const sass = gulpSass(dartSass);
 const postcss = require('gulp-postcss');
@@ -98,7 +99,8 @@ function sassBuild() {
     // PRODUCTION && uncss(UNCSS_OPTIONS),
   ].filter(Boolean);
 
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/**/*.{scss,css}')
+    .pipe(cache('cache_sassBuild', { optimizeMemory: true })) // do not generate .min - .map on non modified files when watching
     .pipe($.sourcemaps.init())
     .pipe(sass({
       includePaths: PATHS.sass
@@ -176,13 +178,26 @@ function reload(done) {
 }
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
+function clear_caches(cache_name) {
+  return function clear_scss_caches () {
+    delete cache.caches[cache_name];
+    return gulp.src('.')
+};
+}
+
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
   gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/data/**/*.{js,json,yml}').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/helpers/**/*.js').on('all', gulp.series(resetPages, pages, browser.reload));
+
   gulp.watch('src/assets/scss/**/*.scss').on('all', sassBuild);
+  gulp.watch([
+    'src/assets/scss/custom/*.scss',
+    'src/assets/scss/global/*.scss'
+  ]).on('all', gulp.series(clear_caches("cache_sassBuild"), sassBuild));
+
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
   gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));

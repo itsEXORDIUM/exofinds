@@ -10,7 +10,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/a0dmjhi/Ka7omax1p/layout.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/app_layout.css">
+    <link rel="stylesheet" href="../assets/css/app_template.css">
     <link href="../assets/lib/style-my-tooltips.css" rel="stylesheet" type="text/css" />
 
     <!-- JS -->
@@ -18,19 +21,17 @@
     <script src="../assets/lib/jquery.style-my-tooltips.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
 </head>
-<body>
-    {{> iframe}}
+<body class="grid-y">
     {{> header}}
 
-    <main>
-        <img src="{{base.bg_img}}" alt="" class="bg_img">
+    <main class="cell shrink">
         {{> body}}
     </main>
 
-    <footer>
-        {{!> credit}}
-    </footer>
+    {{> footer}}
 
     <script>
         (function($){

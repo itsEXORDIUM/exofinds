@@ -1,31 +1,37 @@
-<!-- INDEX PAGE -->
-<div id="index">
-    <nav id="big_nav">
-        <ul>
-            {{#base}}
-                {{#each big_nav}}
-                    <li>
-                        <a href="{{item.url}}">
-                            {{item.title}}
-                        </a>
-                    </li>
-                {{/each}}
-            {{/base}}
-        </ul>
-    </nav>
-
-    <div id="center_piece">
-        <img src="{{base.center_img}}" alt=""/>
-        <img src="{{base.center_img}}" alt=""/>
+<!-- HOME PAGE -->
+<div id="home">
+    <div class="bandeau_home">
+        <div class="img">
+            <img src="../assets/img/bandeau_home.jpg" width="1920" height="1080" alt=""/>
+        </div>
     </div>
 
-    <nav id="small_nav">
-        <ul>
-            {{#base}}
-                {{#each small_nav}}
-                    <li><a href="{{item.url}}">{{item.title}}</a></li>
-                {{/each}}
-            {{/base}}
-        </ul>
-    </nav>
+    <div class="grid-container">
+        <div class="slider_home">
+            <div class="slide">
+                <h2 class="h1">
+                    <a href="">see all my posts in one page</a>
+                </h2>
+            </div>
+            <div class="slide">
+                <h2 class="h1">
+                    <a href="">see the FC directory</a>
+                </h2>
+            </div>
+        </div>
+
+        <a href="#" id="scrollDown">
+            <span>Scroll Down</span>
+        </a>
+    </div>
+
+    {{> latest_design}}
+
+    {{> current_requests}}
+
+    {{> favorites}}
+
+    {{> muses}}
+
+    {{> latest_codes}}
 </div>

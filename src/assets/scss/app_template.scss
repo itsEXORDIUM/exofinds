@@ -1,0 +1,69 @@
+@import './global/settings';
+@import 'foundation';
+@import './custom/mixins';
+
+/***********************************/
+/*************** HOME **************/
+/***********************************/
+
+    // BANDEAU HOME
+        .bandeau_home {
+            height:100vh; position:absolute; z-index:-1; top:0; left:0; width:100%;
+
+            .img {
+                height:100%; position:relative;
+
+                &::before, &::after {content:''; display:block; position:absolute; width:100%; left:0;}
+                &::before {top:0; background-image:linear-gradient($black, transparent); height:28rem;}
+                &::after {bottom:0; background-image:linear-gradient(transparent, $black); height:38rem;}
+            }
+            img {height:100%; object-fit:cover;}
+        }
+
+        .slider_home {
+            height:100vh; position:relative;
+
+            .slick-list, .slick-track, .slick-slide {height:100%;}
+            .slide {display:flex !important; align-items:center;}
+            .slide a:is(:hover, :focus) {opacity:.8;}
+
+            // navigation
+            ul.slick-dots {
+                position:absolute; top:50%; transform:translateY(-8rem); display:flex;
+                li::before {display:none;}
+
+                li {font-size:1.6em; line-height:1;}
+                > li:not(:first-child)::before {content:''; display:inline-block; width:6rem; height:0.2rem; background-color:$white; opacity:0.5; vertical-align:middle; margin:0 1.5rem;}
+                button {font-weight:bold; opacity:0.6;}
+                li button::before {content:'0';}
+
+                // active
+                li.slick-active button, li button:is(:hover, :focus) {opacity:1;}
+            }
+        }
+
+        #scrollDown {
+            display:inline-block; position:relative; transform:translateY(calc(-100% - 2.5rem)); text-align:left; line-height:1.4;
+            &::before {content:''; display:inline-block; width:3rem; height:3rem; border-radius:50%; border:0.1rem solid $white; vertical-align:middle; background-image:url('../img/SVG/white/next_full.svg'); transform:rotate(90deg); background-size:auto 1rem; background-position:50% 50%; background-repeat:no-repeat;}
+            span {@include mini; margin-left:1rem; display:inline-block; vertical-align:middle; max-width:5rem;}
+
+            &:is(:hover, :focus) {
+                &::before {animation: arrowDown 1s linear infinite;}
+            }
+
+            @keyframes arrowDown {
+                0% {background-position:35% 50%;}
+                50% {background-position:65% 50%;}
+                100% {background-position:35% 50%;}
+            }
+        }
+
+    // BLOC HOME
+        .bloc_home {
+            padding:5rem 0; position:relative; z-index:2;
+            .bloc_home_title {
+                margin-bottom:3.5rem;
+                > * {font-size:6.5em; -webkit-text-fill-color:transparent; -webkit-text-stroke:0.1rem; text-transform:uppercase; line-height:1;}
+                > * span {font-size:1rem; -webkit-text-fill-color:initial; -webkit-text-stroke:initial; font-family:$regular; font-weight:bold; display:inline-block; vertical-align:middle; max-width:4rem; margin-top:1rem;}
+            }
+        }

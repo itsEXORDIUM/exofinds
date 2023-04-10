@@ -1,0 +1,24 @@
+- name: 'Sabrina Carpenter'
+  work: 'avatars'
+  img: '../../assets/img/fcs/sabrina.jpg'
+  done: true
+- name: 'Kat Graham'
+  work: 'avatars'
+  img: '../../assets/img/fcs/kat.jpg'
+  done: false
+- name: 'Andy Biersack'
+  work: 'avatars'
+  img: '../../assets/img/fcs/andy.jpg'
+  done: false
+- name: 'India Eisley'
+  work: 'avatars'
+  img: '../../assets/img/fcs/india.jpg'
+  done: false
+- name: 'Lauren Jaureigui'
+  work: 'avatars'
+  img: '../../assets/img/fcs/lauren.jpg'
+  done: false
+- name: 'Ricky Whittle'
+  work: 'avatars'
+  img: '../../assets/img/fcs/ricky.jpg'
+  done: false

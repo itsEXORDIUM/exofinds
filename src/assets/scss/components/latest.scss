@@ -1,0 +1,37 @@
+@import '../global/settings';
+@import 'foundation';
+@import '../custom/mixins';
+
+/*************************************************/
+/*************** LATEST - BLOC HOME **************/
+/*************************************************/
+
+    .latest.bloc_home {
+        padding-top:10rem;
+
+        .btn_arrow {top:-4rem; right:0; position:absolute; transform:translateY(-100%);}
+        .btn_prev {transform:translate(calc(-100% - 3rem), -100%);}
+
+        .slick-list {margin:0 -1.5rem;}
+        // item
+            .item {
+                margin:0 1.5rem; aspect-ratio:328/524;
+
+                .link {position:relative; z-index:1; display:flex; justify-content:flex-end; flex-direction:column; width:100%; height:100%;}
+                .txt {padding:1.5rem;}
+                .desc {display:block; margin-left:auto; width:7rem;}
+                .nb {font-size:map-deep-get($header-styles, large, h3, font-size); font-family:$title; line-height:1;}
+                .desc > span {margin-left:0.5rem; max-width:2.6rem; display:inline-block; word-wrap:break-word;}
+                .img {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;}
+
+                // hover - item
+                .hover {position:absolute; top:0; left:0; width:100%; height:100%; z-index:3; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:20rem 2.5rem 0 2.5rem; opacity:0; transition:$global-transition;}
+                .hover::before {content:''; display:block; position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; background-color:$primary; opacity:0.9;}
+                .btn_round > * > * {opacity:1;}
+                .btn_round > *::before {background-color:transparent;}
+                .btn_round > *:is(:hover, :focus)::before {background-image:url('../../img/SVG/white/next_full.svg');}
+
+                // hover, focus
+                &:is(:hover, :focus-within) .hover {opacity:1;}
+            }
+    }

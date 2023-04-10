@@ -1,0 +1,41 @@
+@import '../global/settings';
+@import 'foundation';
+@import '../custom/mixins';
+
+/*************************************************/
+/************* FAVORITES - BLOC HOME *************/
+/*************************************************/
+
+    #favorites.bloc_home {
+        .item {}
+        .container_item:nth-child(2) .item, .container_item:first-child .item {border-top:0.1rem solid rgba(255,255,255,0.5);}
+
+        .item {
+            position:relative; min-height:21.8rem; height:100%; padding:1.5rem 12rem 1.5rem 0; border-bottom:0.1rem solid rgba(255,255,255,0.5); display:flex; flex-direction:column; justify-content:space-between; transition:$global-transition;
+            .title {margin-bottom:0; text-transform:uppercase;}
+            > .img {position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; filter:grayscale(100%); transition:$global-transition; overflow:hidden;}
+            > .img img {opacity:0; object-fit:cover; width:100%; height:100%; transition:$global-transition; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%) scale(1.1);}
+
+            ul.tags {
+                li {font-size:1em;}
+                li::before {display:none;}
+            }
+
+            .url {position:absolute; top:50%; right:2rem; width:15.5rem; height:15.5rem; transform:translateY(-50%);}
+            .url .btn_round {margin-bottom:0; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%) scale(1.6);}
+            .url .btn_round > *:is(a, button)::before {background-color:transparent; opacity:0;}
+            .url .btn_round.arrow > *:is(a, button)::before {background-image:url('../../img/SVG/white/next_full.svg');}
+            .url img {position:absolute; @include bulleImg; top:50%; left:50%; transform:translate(-50%, -50%) rotate(12deg); filter:grayscale(100%); transition:$global-transition;}
+
+            // hover, focus
+            .url:is(:hover, :focus-within) {
+                .btn_round > *:is(a, button)::before {opacity:1;}
+                img {opacity:0;}
+            }
+        }
+
+        .item.hover {
+            padding-left:2.5rem;
+            > .img img {opacity:0.2; width:100%; height:100%; transform:translate(-50%, -50%) scale(1);}
+        }
+    }

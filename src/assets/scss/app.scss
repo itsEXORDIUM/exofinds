@@ -1,150 +1,69 @@
 @charset 'utf-8';
-@import 'global/settings';
 
-// UTILS
-@import 'components/utils.scss';
-@import 'components/header.scss';
+@import './global/settings';
+@import 'foundation';
+@import 'motion-ui';
+@import './custom/mixins';
 
-// TUMBLR BASICS
-@import 'components/tumblr_iframe.scss';
+// Global styles
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
 
-// CONTAINERS
-@import 'components/index.scss';
-@import 'components/fc_nav.scss';
+// Grids (choose one)
+@include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
 
-// POSTS
-@import 'components/posts.scss';
+// Generic components
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-close-button;
+@include foundation-label;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-range-input;
+@include foundation-switch;
+@include foundation-table;
+// Basic components
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-dropdown;
+@include foundation-pagination;
+@include foundation-tooltip;
 
-// BLOCS
-@import 'components/nav.scss';
-@import 'components/pagination.scss';
-@import 'components/credit.scss';
-@import 'components/directory.scss';
-@import 'components/fc_panel.scss';
+// Containers
+@include foundation-accordion;
+@include foundation-media-object;
+@include foundation-orbit;
+@include foundation-responsive-embed;
+@include foundation-tabs;
+@include foundation-thumbnail;
+// Menu-based containers
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-accordion-menu;
+@include foundation-drilldown-menu;
+@include foundation-dropdown-menu;
 
-// RESPONSIVE
-@import 'components/responsive/tablette.scss';
-@import 'components/responsive/phone.scss';
+// Layout components
+@include foundation-off-canvas;
+@include foundation-reveal;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-top-bar;
 
-/*----- BASIC STYLING -----*/
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+// @include foundation-prototype-classes;
 
-:root {
-    font-size:10px;
-}
+// Motion UI
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: $body-font-family;
-    font-size: $global-font-size;
-    color:$white;
-    background-color: $body-background;
-    line-height: $global-lineheight;
-    word-wrap: break-word;
-    margin: 0;
-    padding-top: $header_height;
-    height:100vh;
-    max-width:100%;
-}
-
-a {
-    color:$primary_color;
-    text-decoration: none;
-    transition: all $global_transition;
-    font-size:1em;
-    line-height:inherit;
-
-    &:hover {
-        color: $primary_color;
-    }
-}
-
-h1, h2, h3, h4, h5, .title {
-    font-family: $header-font-family;
-    font-weight: $header-font-weight;
-    font-style: $header-font-style;
-    color: $header-color;
-    line-height: $header-lineheight;
-    margin-bottom: $header-margin-bottom;
-}
-
-h1 {font-size: map-deep-get($header-styles, large, h1, font-size);}
-h2 {font-size: map-deep-get($header-styles, large, h2, font-size);}
-h3 {font-size: map-deep-get($header-styles, large, h3, font-size);}
-h4 {font-size: map-deep-get($header-styles, large, h4, font-size);}
-h5 {font-size: map-deep-get($header-styles, large, h5, font-size);}
-
-small {font-size: $small-font-size;}
-big {font-size: 1.1em;}
-
-ol, ul {
-    margin-bottom:$list-margin-bottom;
-    list-style-position: $list-style-position;
-
-    li {
-        line-height:$list-lineheight;
-    }
-}
-
-hr {
-    height: 0;
-    border: $hr-border;
-    box-shadow: none;
-    background-color: $medium_gray;
-    width: $global-width;
-    margin: $hr-margin;
-}
-
-pre {
-    line-height: inherit;
-    font-size: inherit;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-main {
-    position: relative;
-    width: $main_width;
-    height:calc(100% - #{$header-height} - 3rem - 5rem);
-    overflow: hidden;
-    margin:$main_padding;
-    background-color:$primary_color;
-    z-index:0;
-
-    .bg_img {position:absolute; width:100%; height:100%; top:0; left:0; object-fit:cover; mix-blend-mode:difference; opacity:0.7; z-index:-1;}
-}
-
-section {
-    position: relative;
-    width: $post_size;
-    margin-left: 40rem;
-}
-
-img {
-    margin: 0;
-    display: block;
-    height: auto;
-    max-width: 100%;
-}
-
-figure {
-    margin-left:0;
-    margin-right:0;
-}
-
-/* width */
-::-webkit-scrollbar {
-    width: 1rem;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: $black;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background:$primary_color;
-}
+// EXORDIUM.
+@import 'global/typography';

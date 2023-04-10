@@ -1,9 +1,0 @@
-iframe.tmblr-iframe--unified-controls {
-    z-index: 999999999 !important;
-    position:fixed;
-    top:calc(#{$header_height} + 7.5rem);
-    right:5.5rem;
-    transform:scale(0.6);
-    transform-origin: top right;
-    background-color:rgba(0,0,0, 0.5);
-}
